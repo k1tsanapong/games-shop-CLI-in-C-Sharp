@@ -18,7 +18,9 @@ using System.IO;
 
         public static bool CheckUserName(string new_user_name)
         {
-            const string Path = "data/user.txt"; //for replit
+            const string Path = "data/user.txt";          //for replit
+         // const string Path = "../../../data/user.txt"; //for windows
+
             string[] user_name = File.ReadAllLines(Path);
 
             using (StreamWriter file = new StreamWriter(Path, true))
