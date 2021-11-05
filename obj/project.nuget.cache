@@ -1,16 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "dgSpecHash": "fH6vjcutWJLh2OE+ytS6+FWrGfre+eI9tQlGR6NpbFJGaWg6Fkd54UNVHQqYLgxPUfFQW27H2aRReEYY5lZPXw==",
-=======
-  "dgSpecHash": "un0A6zCegM4qUhKXdoj5dNbaU2oPvk7ejVFU8w8Ws6cDu7JIeZJGce46tjEdDmtNQPhqXhanlQk/OzPKFw/A1g==",
->>>>>>> parent of 5e2e7c0 (Desktop)
-=======
-  "dgSpecHash": "un0A6zCegM4qUhKXdoj5dNbaU2oPvk7ejVFU8w8Ws6cDu7JIeZJGce46tjEdDmtNQPhqXhanlQk/OzPKFw/A1g==",
->>>>>>> parent of 5e2e7c0 (Desktop)
+  "dgSpecHash": "c/j5CRcG4mYIUnBGtUOJqn3bicZE31kHeHqtyoGZ1YyBA8ypf/oDa4YrkEzEbT3vHmhY+MmBs3/0DCovwcf5dg==",
   "success": true,
-  "projectFilePath": "/home/runner/SteamReplit/main.csproj",
+  "projectFilePath": "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\SteamReplit\\main.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,6 +1,8 @@
 using System;
 using System.IO;
 
+// start
+
     class Program
     {
         static void Main(string[] args)
