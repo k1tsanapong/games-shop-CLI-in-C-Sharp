@@ -20,12 +20,11 @@ class Program
 
     public static bool CheckUserName(string new_user_name)
     {
-        const string Path = "data/user.txt";          //for replit
-                                                      // const string Path = "../../../data/user.txt"; //for windows
+        string file_name = "user";
+        string path = Path(file_name);
+        string[] user_name = PullData(file_name);
 
-        string[] user_name = File.ReadAllLines(Path);
-
-        using (StreamWriter file = new StreamWriter(Path, true))
+        using (StreamWriter file = new StreamWriter(path, true))
         { // start new_user_name
 
             for (int i = 0; i <= (user_name.Length - 1); i++)
@@ -76,6 +75,21 @@ class Program
 
 
         return password;
+    }
+
+    public static string[] PullData(string file_name){
+    
+        string path = Path(file_name);
+
+        string[] data_base = File.ReadAllLines(path);
+        return data_base;
+
+    }
+
+    public static string Path(string file_name){
+
+        string path = "./data/" + file_name + ".txt";
+        return path;
     }
 
 }
