@@ -8,15 +8,13 @@ class Program
 {
     static void Main(string[] args)
     {
-
-
+        bool success;
+        int select;
 
         main_menu.selection();
 
-
-        int select = Convert.ToInt32(Console.ReadLine());
+        success = Int32.TryParse(Console.ReadLine(), out select);   // input select
         int userInput = 1;
-
         while (userInput != 0)
         {
             switch (select)
@@ -42,28 +40,21 @@ class Program
 
         //kim
         //int select = Int32.Parse(Console.ReadLine());
-        int select1 = Convert.ToInt32(Console.ReadLine());
-        switch (select1)
-        {
-            case 1:
-                Console.WriteLine("*----Menu----*");
-                Console.WriteLine("1.Shop");
-                Console.WriteLine("2.Libray");
-                Console.WriteLine("3.Return");
-                Console.Write("Select ....");
-                int select2 = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("P'Kim");
+
+
+        menu.selection();
+        success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+
+
                 if (select2 == 1) //shop
                 {
-                    Console.WriteLine("*----Shop----*");
-                    Console.WriteLine("1. gta x");
-                    Console.WriteLine("2.cyberpunk 1999");
-                    Console.WriteLine("3.old world");
-                    Console.WriteLine("4.mario cart");
-                    Console.WriteLine("5.return");
+                   menu.shop();
                 }
                 else if (select2 == 2)
                 {
-                    Console.WriteLine("*----Libary----*");
+                    menu.libary();
                 }
                 else if (select2 == 3)
                 {
@@ -73,7 +64,7 @@ class Program
                 {
                     Console.WriteLine("Please select 1-3");
                 }
-                break;
+                
 
 
             case 2: //libray
@@ -93,7 +84,7 @@ class Program
             default:
                 Console.WriteLine("Please select 1-2");
                 break;
-        }
+    
 
         {
             int Game1 = 23, Game2 = 47, Game3 = 221, Game4 = 60, select3, confirm;
@@ -188,5 +179,6 @@ class Program
 
 
 }
+
 
 
