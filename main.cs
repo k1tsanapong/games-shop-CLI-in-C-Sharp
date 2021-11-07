@@ -32,7 +32,7 @@ class Program
 
                 default:
                     Console.WriteLine("Do again");
-                    select = Convert.ToInt32(Console.ReadLine());
+                    success = Int32.TryParse(Console.ReadLine(), out select);   // input select
                     break;
             }
         }

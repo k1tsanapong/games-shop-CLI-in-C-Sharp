@@ -2,10 +2,10 @@ using System;
 using Func;
 namespace SelectMenu
 {
-
+    
     public class main_menu
     {
-
+        
         public static void selection()
         {
             Console.Clear();
@@ -20,15 +20,33 @@ namespace SelectMenu
 
         public static void login()
         {
-
+            string user_name, user_password;
+            string[] check_password;
             Console.Clear();
 
             Console.WriteLine("--- Log In ---");
-            Console.WriteLine("User : ");
+            Console.Write("User : ");
+            
+            user_name = Console.ReadLine();
 
+            if(file_func.ScanData(user_name, 1, file_func.PullData("user"))){
+                Console.Write("Password : ");
+                user_password = Console.ReadLine();
 
+                check_password = file_func.SelectData(user_name, 1, file_func.PullData("user"));
 
+                if(user_password == check_password[1]){
+                    Console.WriteLine("Suc");
+                }
 
+                else{
+                    Console.WriteLine("Fail");
+                }
+
+            }
+            else{
+                Console.WriteLine("Fail");
+            }
 
         }
 

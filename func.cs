@@ -17,6 +17,25 @@ namespace Func
 
         }
 
+        public static string[] SelectData(string check, int column, string[] data_base)
+        {
+            
+            column--;
+            string[] not_found = {"NotFound"};
+
+            for (int i = 0; i < data_base.Length; i++)
+            {
+                string[] fields = data_base[i].Split(',');
+
+                if (check == fields[column])
+                {
+                    return fields;                           //break
+                }
+            }
+
+            return not_found;
+        }
+
         public static string Path(string file_name)
         {
 
@@ -36,12 +55,12 @@ namespace Func
                 if (check == fields[column])
                 {
                     //Console.WriteLine("fail");
-                    return false;                           //break
+                    return true;                           //break
                 }
             }
 
             //Console.WriteLine("Suc");
-            return true;
+            return false;
 
         }
 
@@ -87,7 +106,7 @@ namespace Func
 
                 i++;
 
-            } while (!CheckUserName(new_user_name));
+            } while (CheckUserName(new_user_name));
 
             Console.WriteLine("Suc");
             return new_user_name;
