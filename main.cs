@@ -1,21 +1,44 @@
 using System;
 using System.IO;
-using func;
-
+using Func;
+using SelectMenu;
 // start
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("--- Main Menu ---");
-        Console.WriteLine("1. Log in ");
-        Console.WriteLine("2. Sigh up");
-
-        Console.Write("Select ....");
 
 
-        user_func.AddNewUser(user_func.CreateUser(), user_func.CreatePassWord());
+
+        main_menu.selection();
+
+
+        int select = Convert.ToInt32(Console.ReadLine());
+        int userInput = 1;
+
+        while (userInput != 0)
+        {
+            switch (select)
+            {
+
+                case 1:
+                    userInput--;
+                    main_menu.login();
+                    break;
+
+                case 2:
+                    userInput--;
+                    main_menu.signup();
+                    break;
+
+                default:
+                    Console.WriteLine("Do again");
+                    select = Convert.ToInt32(Console.ReadLine());
+                    break;
+            }
+        }
+
 
         //kim
         //int select = Int32.Parse(Console.ReadLine());

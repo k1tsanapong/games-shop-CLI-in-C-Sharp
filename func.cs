@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace func
+namespace Func
 {
 
     public class file_func
