@@ -8,13 +8,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        bool success;
-        int select;
-
+        bool success;   // use for no error input
+        int select, userInput = 1;
+        string user_name = "";
+        
         main_menu.selection();
 
         success = Int32.TryParse(Console.ReadLine(), out select);   // input select
-        int userInput = 1;
+        userInput = 1;
         while (userInput != 0)
         {
             switch (select)
@@ -22,7 +23,7 @@ class Program
 
                 case 1:
                     userInput--;
-                    main_menu.login();
+                    user_name = main_menu.login();
                     break;
 
                 case 2:
@@ -48,7 +49,7 @@ class Program
                 menu.shop();
                 break;
             case 2:
-                menu.libary();
+                menu.libary(user_name);
                 break;
             case 3:
                 ///return>>. ก่อนหน้า
