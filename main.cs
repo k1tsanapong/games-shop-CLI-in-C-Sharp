@@ -9,13 +9,13 @@ class Program
     static void Main(string[] args)
     {
         bool success;   // use for no error input
-        int select;
+        int select, userInput = 1;
         string user_name = "";
-
+        
         main_menu.selection();
 
         success = Int32.TryParse(Console.ReadLine(), out select);   // input select
-        int userInput = 1;
+        userInput = 1;
         while (userInput != 0)
         {
             switch (select)

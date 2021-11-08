@@ -2,10 +2,10 @@ using System;
 using Func;
 namespace SelectMenu
 {
-    
+
     public class main_menu
     {
-        
+
         public static void selection()
         {
             Console.Clear();
@@ -26,27 +26,31 @@ namespace SelectMenu
 
             Console.WriteLine("--- Log In ---");
             Console.Write("User : ");
-            
+
             user_name = Console.ReadLine();
 
-            if(file_func.ScanData(user_name, 1, file_func.PullData("user"))){
+            if (file_func.ScanData(user_name, 1, file_func.PullData("user")))
+            {
                 Console.Write("Password : ");
                 user_password = Console.ReadLine();
 
                 check_password = file_func.SelectData(user_name, 1, file_func.PullData("user"));
 
-                if(user_password == check_password[1]){
+                if (user_password == check_password[1])
+                {
                     Console.WriteLine("Suc");
                     return user_name;
                 }
 
-                else{
+                else
+                {
                     Console.WriteLine("Fail");
                     return "Fail";
                 }
 
             }
-            else{
+            else
+            {
                 Console.WriteLine("Fail");
                 return "Fail";
             }
@@ -61,46 +65,48 @@ namespace SelectMenu
         }
     }   // end class main_menu
 
-    public class menu 
-    {   
+    public class menu
+    {
         public static void selection()
         {
-                Console.Clear();
+            Console.Clear();
 
-                Console.WriteLine("*----Menu----*");
-                Console.WriteLine("1.Shop");
-                Console.WriteLine("2.Libray");
-                Console.WriteLine("3.Return");
-                Console.Write("Select ....");
+            Console.WriteLine("*----Menu----*");
+            Console.WriteLine("1.Shop");
+            Console.WriteLine("2.Libray");
+            Console.WriteLine("0.Return");
+            Console.Write("Select ....");
         }
 
         public static void shop()
         {
-                Console.Clear();
+            Console.Clear();
 
-                Console.WriteLine("*----Shop----*");
-                Console.WriteLine("1. gta x");
-                Console.WriteLine("2.cyberpunk 1999");
-                Console.WriteLine("3.old world");
-                Console.WriteLine("4.mario cart");
-                Console.WriteLine("5.return");
+            Console.WriteLine("*----Shop----*");
+            Console.WriteLine("1. gta x");
+            Console.WriteLine("2.cyberpunk 1999");
+            Console.WriteLine("3.old world");
+            Console.WriteLine("4.mario cart");
+            Console.WriteLine("0.return");
         }
 
         public static void libary(string user_name)
         {
-                Console.WriteLine("*----Libary----*");
+            Console.WriteLine("*----Libary----*");
 
-                string[] show_game = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
+            string[] show_game = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
+
+            for (int i = 1; i < show_game.Length; i++)
+            {
+                Console.WriteLine(i + ". " + show_game[i]);
                 
-                for(int i = 1; i < show_game.Length; i++){
-                    Console.WriteLine(i + ". " + show_game[i]);
-                }
+            }
 
 
-                // foreach (string game_name in show_game){
-                //     Console.WriteLine(i + ". " + game_name);
-                //     i++;
-                // }
+            // foreach (string game_name in show_game){
+            //     Console.WriteLine(i + ". " + game_name);
+            //     i++;
+            // }
 
         }
 

@@ -19,9 +19,9 @@ namespace Func
 
         public static string[] SelectData(string check, int column, string[] data_base)
         {
-            
+
             column--;
-            string[] not_found = {"NotFound"};
+            string[] not_found = { "NotFound" };
 
             for (int i = 0; i < data_base.Length; i++)
             {
@@ -78,10 +78,7 @@ namespace Func
 
         public static bool CheckUserName(string new_user_name)
         {
-            string file_name = "user";
-            string path = file_func.Path(file_name);
-            string[] user_name = file_func.PullData(file_name);
-
+            string[] user_name = file_func.PullData("user");
             return file_func.ScanData(new_user_name, 1, user_name);
 
         }
