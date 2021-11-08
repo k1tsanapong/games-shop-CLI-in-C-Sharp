@@ -18,7 +18,7 @@ namespace SelectMenu
 
         }
 
-        public static void login()
+        public static string login()
         {
             string user_name, user_password;
             string[] check_password;
@@ -37,15 +37,18 @@ namespace SelectMenu
 
                 if(user_password == check_password[1]){
                     Console.WriteLine("Suc");
+                    return user_name;
                 }
 
                 else{
                     Console.WriteLine("Fail");
+                    return "Fail";
                 }
 
             }
             else{
                 Console.WriteLine("Fail");
+                return "Fail";
             }
 
         }
@@ -62,6 +65,8 @@ namespace SelectMenu
     {   
         public static void selection()
         {
+                Console.Clear();
+
                 Console.WriteLine("*----Menu----*");
                 Console.WriteLine("1.Shop");
                 Console.WriteLine("2.Libray");
@@ -71,17 +76,31 @@ namespace SelectMenu
 
         public static void shop()
         {
-                    Console.WriteLine("*----Shop----*");
-                    Console.WriteLine("1. gta x");
-                    Console.WriteLine("2.cyberpunk 1999");
-                    Console.WriteLine("3.old world");
-                    Console.WriteLine("4.mario cart");
-                    Console.WriteLine("5.return");
+                Console.Clear();
+
+                Console.WriteLine("*----Shop----*");
+                Console.WriteLine("1. gta x");
+                Console.WriteLine("2.cyberpunk 1999");
+                Console.WriteLine("3.old world");
+                Console.WriteLine("4.mario cart");
+                Console.WriteLine("5.return");
         }
 
-        public static void libary()
+        public static void libary(string user_name)
         {
-                    Console.WriteLine("*----Libary----*");
+                Console.WriteLine("*----Libary----*");
+
+                string[] show_game = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
+                
+                for(int i = 1; i < show_game.Length; i++){
+                    Console.WriteLine(i + ". " + show_game[i]);
+                }
+
+
+                // foreach (string game_name in show_game){
+                //     Console.WriteLine(i + ". " + game_name);
+                //     i++;
+                // }
 
         }
 
