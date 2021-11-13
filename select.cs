@@ -31,6 +31,10 @@ namespace SelectMenu
 
             if (file_func.ScanData(user_name, 1, file_func.PullData("user")))
             {
+
+
+
+
                 Console.Write("Password : ");
                 user_password = Console.ReadLine();
 
@@ -55,11 +59,14 @@ namespace SelectMenu
                 return "Fail";
             }
 
+
+
+
         }
 
         public static void signup()
         {
-
+            Console.Clear();
             user_func.AddNewUser(user_func.CreateUser(), user_func.CreatePassWord());
 
         }
@@ -96,15 +103,32 @@ namespace SelectMenu
 
             string[] show_game = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
 
-            for (int i = 1; i < show_game.Length; i++)
+            for (int i = 2; i <= show_game.Length; i++)
             {
-                Console.WriteLine(i + ". " + show_game[i]);
+               
+                if(i == show_game.Length)
+                {
+                    Console.WriteLine("0. Return");
+                    Console.Write("Select... ");
+
+                }
+
+                else if(show_game[i] == "")
+                {
+                    Console.WriteLine("Have no game");
+                    Console.WriteLine("Enter for exit");
+                }
+                
+                else
+                {
+                    Console.WriteLine(i-1 + ". " + show_game[i]);
+                }
                 
             }
 
 
             // foreach (string game_name in show_game){
-            //     Console.WriteLine(i + ". " + game_name);
+            //     Console.WriteLine(i + ". " + game_name);     // not work (；￣Д￣）
             //     i++;
             // }
 

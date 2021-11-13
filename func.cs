@@ -72,7 +72,13 @@ namespace Func
 
         public static void AddNewUser(string name, string password)
         {
+            string user_new = name + "," + password;
             Console.WriteLine(name + "," + password);
+            
+            using (StreamWriter file = new StreamWriter(file_func.Path("user") , true)){
+                file.WriteLine(user_new);
+            }
+
         }
 
 
