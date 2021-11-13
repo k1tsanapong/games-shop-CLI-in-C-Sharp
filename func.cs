@@ -89,50 +89,9 @@ namespace Func
 
         }
 
-        public static string CreateUser()
-        {
-            string new_user_name;
-            int i = 1;
+       
 
-            // user_name condition if(new_user_name) {do something}
-
-
-            do
-            {
-                if (i != 1)
-                {
-                    Console.WriteLine("fail");
-                }
-
-                Console.Write("User : ");
-                new_user_name = Console.ReadLine();
-
-                i++;
-
-            } while (CheckUserName(new_user_name));
-
-            Console.WriteLine("Suc");
-            return new_user_name;
-        }
-
-        public static string CreatePassWord()
-        {
-
-            string password;
-            string password_confilm;
-            do
-            {
-                Console.Write("Password : ");
-                password = Console.ReadLine();
-
-                Console.Write("Confilm Password : ");
-                password_confilm = Console.ReadLine();
-
-            } while (password != password_confilm);
-
-
-            return password;
-        }
+       
 
 
 
