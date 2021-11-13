@@ -39,7 +39,6 @@ class Program
         }
 
 
-
         menu.selection();
         success = Int32.TryParse(Console.ReadLine(), out select);   // input select
 

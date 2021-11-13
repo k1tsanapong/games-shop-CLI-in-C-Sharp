@@ -46,9 +46,9 @@ namespace Func
         public static bool ScanData(string check, int column, string[] data_base)
         {
 
-            column--;
+            column--;   //Array start at 0
 
-            for (int i = 0; i < data_base.Length; i++)
+            for (int i = 0; i < data_base.Length; i++)  //check all rows
             {
                 string[] fields = data_base[i].Split(',');
 
