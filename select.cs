@@ -99,7 +99,7 @@ namespace SelectMenu
 
             } while (user_func.CheckUserName(user_name));
 
-            
+
 
             check_loop = 1;
             do

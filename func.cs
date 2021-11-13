@@ -74,8 +74,9 @@ namespace Func
         {
             string user_new = name + "," + password;
             Console.WriteLine(name + "," + password);
-            
-            using (StreamWriter file = new StreamWriter(file_func.Path("user") , true)){
+
+            using (StreamWriter file = new StreamWriter(file_func.Path("user"), true))
+            {
                 file.WriteLine(user_new);
             }
 
@@ -89,9 +90,9 @@ namespace Func
 
         }
 
-       
 
-       
+
+
 
 
 
