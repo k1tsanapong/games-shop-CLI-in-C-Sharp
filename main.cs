@@ -14,24 +14,29 @@ class Program
 
         main_menu.selection();
 
+        // select = Convert.ToInt32(Console.ReadLine());
+        
+        
         success = Int32.TryParse(Console.ReadLine(), out select);   // input select
-        userInput = 1;
+
+    
+        userInput = 1;  // for check the loop
         while (userInput != 0)
         {
             switch (select)
             {
 
                 case 1:
-                    userInput--;
+                    userInput--;        // userInput = 0; break the loop
                     user_name = main_menu.login();
                     break;
 
                 case 2:
-                    userInput--;
+                    userInput--;        // userInput = 0; break the loop
                     main_menu.signup();
                     break;
 
-                default:
+                default:    // loop again
                     Console.WriteLine("Do again");
                     success = Int32.TryParse(Console.ReadLine(), out select);   // input select
                     break;
