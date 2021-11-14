@@ -39,43 +39,6 @@ class Program
         }
 
 
-
-        menu.selection();
-        success = Int32.TryParse(Console.ReadLine(), out select);   // input select
-
-        switch (select)
-        {
-            case 1:
-                menu.shop();
-                break;
-            case 2:
-                menu.libary(user_name);
-                break;
-            case 3:
-                ///return>>. ก่อนหน้า
-                break;
-            default:
-                Console.WriteLine("Please select 1-3");
-                break;
-        }
-
-
-        ///รีเทิร์นฝากเหล่าเทพเจ้าช่วยด้วย
-        success = Int32.TryParse(Console.ReadLine(), out select);   // input select
-        switch (select)
-        {
-            case 1:
-                Console.WriteLine("yes");
-                break;
-            case 2:
-                Console.WriteLine("no");
-                break;
-            default:
-                Console.WriteLine("Select ONLY 1,2");
-                break;
-        }
-
-
     } // main
 
 
