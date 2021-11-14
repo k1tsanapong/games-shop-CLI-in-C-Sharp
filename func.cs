@@ -6,12 +6,6 @@ namespace Func
 
     public class file_func
     {
-        public static string Path(string file_name)
-        {
-
-            string path = "./data/" + file_name + ".txt";
-            return path;
-        }
 
         public static string[] PullData(string file_name)
         {
@@ -42,6 +36,12 @@ namespace Func
             return not_found;
         }
 
+        public static string Path(string file_name)
+        {
+
+            string path = "./data/" + file_name + ".txt";
+            return path;
+        }
 
         public static bool ScanData(string check, int column, string[] data_base)
         {
