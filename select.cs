@@ -22,18 +22,18 @@ namespace SelectMenu
         {
             string user_name, user_password;
             string[] check_password;
-            int again = 1;         // 
+            int check_loop = 1;
 
             Console.Clear();
             Console.WriteLine("--- Log In ---");
 
             do
             {
-                if (again == 2)
+                if (check_loop == 2)
                 {
                     Console.Clear();
                     Console.WriteLine("--- Log In ---");
-                    Console.WriteLine("Username or Password is wrong");
+                    Console.WriteLine("Username or Password is wong");
                 }
 
                 Console.Write("User : ");
@@ -56,13 +56,13 @@ namespace SelectMenu
 
                     else
                     {
-                        again = 2;
+                        check_loop = 2;
                     }
 
                 }
                 else
                 {
-                    again = 2;
+                    check_loop = 2;
                 }
 
             } while (true);
@@ -73,7 +73,7 @@ namespace SelectMenu
         public static void signup()
         {
             string user_name, user_password, user_password_confilm;
-            int again = 1;
+            int check_loop = 1;
 
             // user_name condition if(new_user_name) {do something}
 
@@ -82,7 +82,7 @@ namespace SelectMenu
 
             do
             {
-                if (again == 2)
+                if (check_loop == 2)
                 {
                     Console.Clear();
                     Console.WriteLine("--- Sign Up ---");
@@ -95,16 +95,16 @@ namespace SelectMenu
                 Console.Write("User : ");
                 user_name = Console.ReadLine();
 
-                again = 2;
+                check_loop = 2;
 
-            } while (user_func.CheckUserName(user_name) == true);   // have no user
-                             
+            } while (user_func.CheckUserName(user_name));
 
 
-            again = 1;
+
+            check_loop = 1;
             do
             {
-                if (again == 2)
+                if (check_loop == 2)
                 {
                     Console.Clear();
                     Console.WriteLine("--- Sign Up ---");
@@ -118,7 +118,7 @@ namespace SelectMenu
                 Console.Write("Confilm Password : ");
                 user_password_confilm = Console.ReadLine();
 
-                again = 2;
+                check_loop = 2;
 
             } while (user_password != user_password_confilm);
 
@@ -157,25 +157,24 @@ namespace SelectMenu
 
         public static void libary(string user_name)
         {
-            Console.Clear();
             Console.WriteLine("*----Libary----*");
 
             string[] show_game = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
 
-            for (int i = 2; i <= show_game.Length - 1; i++)
+            for (int i = 2; i <= show_game.Length; i++)
             {
 
-                if (show_game[2] == "")
-                {
-                    Console.WriteLine("Have no game");
-                    Console.Write("Enter for return ");
-                }
-
-                else if (i == show_game.Length - 1)
+                if (i == show_game.Length)
                 {
                     Console.WriteLine("0. Return");
                     Console.Write("Select... ");
 
+                }
+
+                else if (show_game[i] == "")
+                {
+                    Console.WriteLine("Have no game");
+                    Console.WriteLine("Enter for exit");
                 }
 
                 else
