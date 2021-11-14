@@ -11,7 +11,7 @@ class Program
         bool success;   // use for no error input
         int select, userInput = 1;
         string user_name = "";
-        
+
         main_menu.selection();
 
         success = Int32.TryParse(Console.ReadLine(), out select);   // input select
@@ -37,7 +37,6 @@ class Program
                     break;
             }
         }
-
 
 
         menu.selection();
