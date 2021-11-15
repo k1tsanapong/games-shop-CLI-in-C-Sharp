@@ -157,6 +157,7 @@ namespace SelectMenu
 
         public static void libary(string user_name)
         {
+            Console.Clear();
             Console.WriteLine("*----Libary----*");
 
             string[] show_game = file_func.SelectData(user_name, 1, file_func.PullData("libary"));

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\l\\main.csproj": {}
+    "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\SteamReplit\\main.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\l\\main.csproj": {
+    "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\SteamReplit\\main.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\l\\main.csproj",
+        "projectUniqueName": "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\SteamReplit\\main.csproj",
         "projectName": "main",
-        "projectPath": "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\l\\main.csproj",
+        "projectPath": "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\SteamReplit\\main.csproj",
         "packagesPath": "C:\\Users\\kitsa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\l\\obj\\",
+        "outputPath": "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\SteamReplit\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kitsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
