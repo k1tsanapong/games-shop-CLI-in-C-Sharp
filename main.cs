@@ -157,9 +157,9 @@ class Program
                         switch (select)
                         {
                             case 1:
-                                
+
                                 topup_loop--;
-                                
+
                                 long topup;
                                 Console.WriteLine("Input your balance:");
                                 success = Int64.TryParse(Console.ReadLine(), out topup);   // input select
@@ -197,7 +197,7 @@ class Program
                     Console.WriteLine("5.Input your money");
                     Console.WriteLine("0.Return");
 
-                    
+
 
 
                     success = Int32.TryParse(Console.ReadLine(), out select);   // input select
@@ -214,7 +214,7 @@ class Program
                     Console.WriteLine("5.Input your money");
                     Console.WriteLine("0.Return");
 
-                    
+
 
 
                     success = Int32.TryParse(Console.ReadLine(), out select);   // input select
