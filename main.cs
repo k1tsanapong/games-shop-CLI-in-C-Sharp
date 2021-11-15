@@ -16,15 +16,7 @@ class Program
         int[] game_price = { 999, 1299, 899, 299 };
 
 
-        Console.Clear();
-
-        Console.WriteLine("*----Shop----*    Your Balance:" + balance);
-        Console.WriteLine($"1.{game_name[0]} \t\t {game_price[0]}  baht");
-        Console.WriteLine($"2.{game_name[1]} \t {game_price[1]}  baht");
-        Console.WriteLine($"3.{game_name[2]} \t\t {game_price[2]}  baht");
-        Console.WriteLine($"4.{game_name[3]} \t\t {game_price[3]}  baht");
-        Console.WriteLine($"5.Input your balance");
-        Console.WriteLine("0.Return");
+        shop(balance);
 
 
         // Console.WriteLine($"{some var}"); is easy to use var 
@@ -188,14 +180,7 @@ class Program
 
                 case 6:    // loop again
 
-                    Console.Clear();
-                    Console.WriteLine("*----Shop----*    Your Balance:" + balance);
-                    Console.WriteLine($"1.{game_name[0]} \t\t {game_price[0]}  baht");
-                    Console.WriteLine($"2.{game_name[1]} \t {game_price[1]}  baht");
-                    Console.WriteLine($"3.{game_name[2]} \t\t {game_price[2]}  baht");
-                    Console.WriteLine($"4.{game_name[3]} \t\t {game_price[3]}  baht");
-                    Console.WriteLine("5.Input your money");
-                    Console.WriteLine("0.Return");
+                    shop(balance);
 
 
 
@@ -205,14 +190,7 @@ class Program
 
                 default:    // loop again
 
-                    Console.Clear();
-                    Console.WriteLine("*----Shop----*    Your Balance:" + balance);
-                    Console.WriteLine($"1.{game_name[0]} \t\t {game_price[0]}  baht");
-                    Console.WriteLine($"2.{game_name[1]} \t {game_price[1]}  baht");
-                    Console.WriteLine($"3.{game_name[2]} \t\t {game_price[2]}  baht");
-                    Console.WriteLine($"4.{game_name[3]} \t\t {game_price[3]}  baht");
-                    Console.WriteLine("5.Input your money");
-                    Console.WriteLine("0.Return");
+                    shop(balance);
 
 
 
@@ -230,7 +208,32 @@ class Program
 
     } // main
 
+     public static void shop(long balance)
+     {
 
+         string[] game_name = { "GTA X", "Cyberpunk 1999", "Old World", "Mariol Cart" };
+            int[] game_price = { 999, 1299, 899, 299 };
+            
+        Console.Clear();
+        
+        Console.WriteLine("*----Shop----*    Your Balance:" + balance);
+        Console.WriteLine($"1.{game_name[0]} \t\t {game_price[0]}  baht");
+        Console.WriteLine($"2.{game_name[1]} \t {game_price[1]}  baht");
+        Console.WriteLine($"3.{game_name[2]} \t\t {game_price[2]}  baht");
+        Console.WriteLine($"4.{game_name[3]} \t\t {game_price[3]}  baht");
+        Console.WriteLine($"5.my wallet");
+        Console.WriteLine("0.Return");
+
+     }
+    public static void select(int select)
+    {
+        string[] game_name = { "GTA X", "Cyberpunk 1999", "Old World", "Mariol Cart" };
+            int[] game_price = { 999, 1299, 899, 299 };
+     
+        Console.Clear();
+        
+        
+    }
 }
 
 
