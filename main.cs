@@ -67,7 +67,7 @@ class Program
                 Console.WriteLine("yes");
                 break;
             case 2:
-                Console.WriteLine("no");
+                Console.WriteLine("no");    
                 break;
             default:
                 Console.WriteLine("Select ONLY 1,2");
