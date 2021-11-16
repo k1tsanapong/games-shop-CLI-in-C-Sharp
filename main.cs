@@ -11,137 +11,76 @@ class Program
     static void Main(string[] args)
     {
         bool success;   // use for no error input
-        // int select;
-        // int userInput = 1;
+        int select;
+        int userInput = 1;
         long balance = 500;
         
-        
-
-        int choose;
-        
         shop(balance);
+        success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+
+        userInput = 1;  // for check the loop
+        while (userInput != 0)
+        {
+
+            if(select >= 1 && select <= 4)
+            {
+                userInput--;        // userInput = 0; break the loop
+                    balance = BuyGame(balance, select);
+            }
+
+            else if(select == 5)
+            {
+                    Console.Clear();
+                    Console.WriteLine("----Your Wallet----");
+                    Console.WriteLine($"Current Wallet balance = {balance} Baht");//return wallet
+                    Console.WriteLine("1.Topup");
+                    Console.WriteLine("0.return");
+                    success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+
+                    int topup_loop = 1;
+                    while (topup_loop != 0)
+                    {
+                        switch (select)
+                        {
+                            case 1:
+
+                                topup_loop--;
+
+                                long topup;
+                                Console.WriteLine("Input your balance:");
+                                success = Int64.TryParse(Console.ReadLine(), out topup);   // input select
+
+                                balance = balance + topup;
+
+                                Console.WriteLine($"Steam wallet code : {balance}");//return wallet
+                                
+                                select = 0;
+
+                                break;
+                            case 0:
+                                topup_loop--;
+                                select = 0;
+                                break;
+                            // ฝาก 0.returnด้วย
+                            default:
+                                Console.WriteLine("Please select only 0 or 1");
+                                break;
+                        }
+
+                    }
+            }
+
+            else
+            {
+                shop(balance);
+                success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+            }
 
 
-        // Console.WriteLine($"{some var}"); is easy to use var 
-
-        Console.WriteLine("Chose a game");
-        success = Int32.TryParse(Console.ReadLine(), out choose);   // input ans
-
-        choose--;
-
-        BuyGame(choose,balance);
-        // userInput--;        // userInput = 0; break the loop
-
-        
-
-                
-
-
-
-
-        // success = Int32.TryParse(Console.ReadLine(), out select);   // input select
-
-        // userInput = 1;  // for check the loop
-        // while (userInput != 0)
-        // {
-        //     switch (select)
-        //     {
-
-        //         // ---Your Wallet--- //
-
-        //         case 5:
-
-        //             Console.Clear();
-        //             Console.WriteLine("----Your Wallet----");
-        //             Console.WriteLine($"Current Wallet balance = {balance} Baht");//return wallet
-        //             Console.WriteLine("1.Topup");
-        //             Console.WriteLine("0.return");
-        //             success = Int32.TryParse(Console.ReadLine(), out select);   // input select
-
-        //             int topup_loop = 1;
-        //             while (topup_loop != 0)
-        //             {
-        //                 switch (select)
-        //                 {
-        //                     case 1:
-
-        //                         topup_loop--;
-
-        //                         long topup;
-        //                         Console.WriteLine("Input your balance:");
-        //                         success = Int64.TryParse(Console.ReadLine(), out topup);   // input select
-
-        //                         balance = balance + topup;
-
-        //                         Console.WriteLine($"Steam wallet code : {balance}");//return wallet
-        //                         select = 6;
-        //                         break;
-        //                     case 0:
-        //                         break;
-        //                     // ฝาก 0.returnด้วย
-        //                     default:
-        //                         Console.WriteLine("Please select only 0 or 1");
-        //                         break;
-        //                 }
-
-        //             }       // while end
-
-
-
-
-
-        //             break;   // case 5 end
-
-
-        //         case 6:    // loop again
-
-        //             shop(balance);
-
-
-
-
-        //             success = Int32.TryParse(Console.ReadLine(), out select);   // input select
-        //             break; // case 6 end
-
-        //         default:    // loop again
-
-        //             shop(balance);
-
-
-
-
-        //             success = Int32.TryParse(Console.ReadLine(), out select);   // input select
-        //             break;
-        //     }
-        // }
-
-
-
-
-
+        }
 
 
     } // main
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -163,10 +102,14 @@ class Program
         Console.WriteLine("0.Return");
 
     }
-    public static void BuyGame(int choose, long balance)
+
+
+    public static long BuyGame(long balance, int choose)
     {
         bool success;
         int ans;
+
+        choose--;
 
         var games = new string[4,2]
         {
@@ -176,67 +119,53 @@ class Program
             {"Mariol Cart", "299"}
         };
 
-        Console.WriteLine($"{games[choose,0]}");
-        Console.WriteLine($"Would you like to buy {games[choose,0]} for {games[choose,1]} baht? \n1.Yes   2.No");
+        int name = 0;
+        int price = 1;
+
+        Console.Clear();
+
+
+
+        Console.WriteLine($"{games[choose,name]}");
+        Console.WriteLine($"Would you like to buy {games[choose,name]} for {games[choose,price]} baht? \n1.Yes   2.No");
         
         
         success = Int32.TryParse(Console.ReadLine(), out ans);   // input ans
 
 
-        int game_price = Convert.ToInt32(games[choose,1]);
+        int game_price = Convert.ToInt32(games[choose,price]);
+
+        Console.Clear();
 
         if (ans == 1 && balance > game_price)
         {
-            Console.WriteLine($"You have purchased {games[choose,0]}. Your remaining balance is: " + (games[choose,1]) + "baht.");
+            Console.Clear();
+            Console.WriteLine($"You have purchased {games[choose,name]}. Your remaining balance is: " + (games[choose,price]) + "baht.");
+            balance = balance - game_price;
         }
+
         else if (ans == 1 && balance < game_price)
         {
+            Console.Clear();
             Console.WriteLine("You don't have enough money.");
         }
+
         else if (ans == 2)
         {
+            Console.Clear();
             Console.WriteLine("Purchase Failed.");
         }
+
         else
         {
+            Console.Clear();
             Console.WriteLine("Please select 1 or 2 only.");
         }
 
+    return balance;
 
     }
 
-
-    public static Tuple<int, int> payment(int balance)
-    {
-
-
-
-
-
-
-
-
-        // In C# 7 and above, see this answer.
-
-        // In previous versions, you can use .NET 4.0+'s Tuple:
-
-        // For Example:
-
-        // public Tuple<int, int> GetMultipleValue()
-        // {
-        //     return Tuple.Create(1,2);
-        // }
-        // Tuples with two values have Item1 and Item2 as properties
-
-
-        return Tuple.Create(balance, 2);
-    }
-
-    public static void paygame(string user_name, string[] user_data)
-    {
-
-
-    }
 }
 
 

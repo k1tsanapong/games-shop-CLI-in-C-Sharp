@@ -5,8 +5,8 @@
 *.cache
 *.editorconfig
 *.editorconfig
-[Oo]bj
-[Bb]in
+/bin/*
+/obj/*
 *.user
 *.suo
 *.[Cc]ache
@@ -18,3 +18,9 @@
 _ReSharper.*
 *.resharper
 Ankh.NoLoad
+bin/Debug/netcoreapp5.0/main.dll
+bin/Debug/netcoreapp5.0/main.pdb
+bin/Debug/netcoreapp5.0/ref/main.dll
+obj/Debug/netcoreapp5.0/main.dll
+obj/Debug/netcoreapp5.0/main.pdb
+obj/Debug/netcoreapp5.0/ref/main.dll
