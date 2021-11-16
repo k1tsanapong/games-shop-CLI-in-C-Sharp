@@ -15,56 +15,26 @@ class Program
         // int userInput = 1;
         long balance = 500;
         
-        int ans;
-
-        var games = new string[4,2]
-        {
-            { "GTA X", "999"},
-            {"Cyberpunk 1999", "1299"},
-            {"Old World", "899"},
-            {"Mariol Cart", "299"}
-        };
         
-        int Chose;
-        int i = 0;
-        // shop(balance);
+
+        int choose;
+        
+        shop(balance);
 
 
         // Console.WriteLine($"{some var}"); is easy to use var 
 
         Console.WriteLine("Chose a game");
-        success = Int32.TryParse(Console.ReadLine(), out Chose);   // input ans
+        success = Int32.TryParse(Console.ReadLine(), out choose);   // input ans
 
-        i = Chose-1;
+        choose--;
 
+        BuyGame(choose,balance);
         // userInput--;        // userInput = 0; break the loop
 
         
 
-        Console.WriteLine($"{games[i,0]}");
-        Console.WriteLine($"Would you like to buy {games[i,0]} for {games[i,1]} baht? \n1.Yes   2.No");
-        
-        
-        success = Int32.TryParse(Console.ReadLine(), out ans);   // input ans
-
-        int game_price = Convert.ToInt32(games[i,1]);
-
-        if (ans == 1 && balance > game_price)
-        {
-            Console.WriteLine($"You have purchased {games[i,0]}. Your remaining balance is: " + (games[i,1]) + "baht.");
-        }
-        else if (ans == 1 && balance < game_price)
-        {
-            Console.WriteLine("You don't have enough money.");
-        }
-        else if (ans == 2)
-        {
-            Console.WriteLine("Purchase Failed.");
-        }
-        else
-        {
-            Console.WriteLine("Please select 1 or 2 only.");
-        }
+                
 
 
 
@@ -193,12 +163,44 @@ class Program
         Console.WriteLine("0.Return");
 
     }
-    public static void select(int select)
+    public static void BuyGame(int choose, long balance)
     {
-        string[] game_name = { "GTA X", "Cyberpunk 1999", "Old World", "Mariol Cart" };
-        int[] game_price = { 999, 1299, 899, 299 };
+        bool success;
+        int ans;
 
-        Console.Clear();
+        var games = new string[4,2]
+        {
+            { "GTA X", "999"},
+            {"Cyberpunk 1999", "1299"},
+            {"Old World", "899"},
+            {"Mariol Cart", "299"}
+        };
+
+        Console.WriteLine($"{games[choose,0]}");
+        Console.WriteLine($"Would you like to buy {games[choose,0]} for {games[choose,1]} baht? \n1.Yes   2.No");
+        
+        
+        success = Int32.TryParse(Console.ReadLine(), out ans);   // input ans
+
+
+        int game_price = Convert.ToInt32(games[choose,1]);
+
+        if (ans == 1 && balance > game_price)
+        {
+            Console.WriteLine($"You have purchased {games[choose,0]}. Your remaining balance is: " + (games[choose,1]) + "baht.");
+        }
+        else if (ans == 1 && balance < game_price)
+        {
+            Console.WriteLine("You don't have enough money.");
+        }
+        else if (ans == 2)
+        {
+            Console.WriteLine("Purchase Failed.");
+        }
+        else
+        {
+            Console.WriteLine("Please select 1 or 2 only.");
+        }
 
 
     }
