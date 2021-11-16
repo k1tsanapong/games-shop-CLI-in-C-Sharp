@@ -234,6 +234,32 @@ class Program
         
         
     }
+
+
+    public static Tuple<int, int> payment(int balance){
+
+
+
+
+
+
+
+
+        // In C# 7 and above, see this answer.
+
+        // In previous versions, you can use .NET 4.0+'s Tuple:
+
+        // For Example:
+
+        // public Tuple<int, int> GetMultipleValue()
+        // {
+        //     return Tuple.Create(1,2);
+        // }
+        // Tuples with two values have Item1 and Item2 as properties
+
+        
+        return Tuple.Create(balance,2);
+    }
 }
 
 
