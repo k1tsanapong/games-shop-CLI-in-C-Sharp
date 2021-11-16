@@ -15,6 +15,8 @@ class Program
         int userInput = 1;
         long balance = 500;
 
+        Console.WriteLine("KImerza");
+
         shop(balance);
         success = Int32.TryParse(Console.ReadLine(), out select);   // input select
 
