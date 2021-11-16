@@ -5,6 +5,5 @@
 *.cache
 *.editorconfig
 *.editorconfig
-obj/Debug/netcoreapp5.0/main.assets.cache
-obj/Debug/netcoreapp5.0/main.GeneratedMSBuildEditorConfig.editorconfig
-.vs/main/DesignTimeBuild/.dtbcache.v2
+/obj
+/bin
