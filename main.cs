@@ -38,6 +38,8 @@ class Program
             }
         }
 
+        string[] user_data = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
+        long balance = Convert.ToInt64(user_data[1]);
 
         menu.selection();
         success = Int32.TryParse(Console.ReadLine(), out select);   // input select
@@ -45,7 +47,7 @@ class Program
         switch (select)
         {
             case 1:
-                menu.shop();
+                menu.PrepareMerge(balance);
                 break;
             case 2:
                 menu.libary(user_name);
