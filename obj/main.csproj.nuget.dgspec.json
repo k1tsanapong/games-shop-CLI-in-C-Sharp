@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\GitHub\\SteamReplit\\main.csproj": {}
+    "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\SteamReplit\\main.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Documents\\GitHub\\SteamReplit\\main.csproj": {
+    "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\SteamReplit\\main.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\SteamReplit\\main.csproj",
+        "projectUniqueName": "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\SteamReplit\\main.csproj",
         "projectName": "main",
-        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\SteamReplit\\main.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\SteamReplit\\obj\\",
+        "projectPath": "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\SteamReplit\\main.csproj",
+        "packagesPath": "C:\\Users\\kitsa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\NEw\\SteamReplit\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kitsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
