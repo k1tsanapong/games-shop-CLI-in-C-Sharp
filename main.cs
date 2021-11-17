@@ -11,11 +11,13 @@ class Program
     static void Main(string[] args)
     {
         bool success;   // use for no error input
-        int select;
-        int userInput = 1;
-        long balance = 500;
+        int select, userInput = 1;
 
-        Console.WriteLine("KImerza");
+        string user_name = "";
+        user_name = main_menu.login();
+        string[] show_game = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
+        long balance = Convert.ToInt64(show_game[1]);
+
 
         shop(balance);
         success = Int32.TryParse(Console.ReadLine(), out select);   // input select
@@ -32,44 +34,8 @@ class Program
 
             else if (select == 5)
             {
-                Console.Clear();
-                Console.WriteLine("----Your Wallet----");
-                Console.WriteLine($"Current Wallet balance = {balance} Baht");//return wallet
-                Console.WriteLine("1.Topup");
-                Console.WriteLine("0.return");
-                success = Int32.TryParse(Console.ReadLine(), out select);   // input select
-
-                int topup_loop = 1;
-                while (topup_loop != 0)
-                {
-                    switch (select)
-                    {
-                        case 1:
-
-                            topup_loop--;
-
-                            long topup;
-                            Console.WriteLine("Input your balance:");
-                            success = Int64.TryParse(Console.ReadLine(), out topup);   // input select
-
-                            balance = balance + topup;
-
-                            Console.WriteLine($"Steam wallet code : {balance}");//return wallet
-
-                            select = 0;
-
-                            break;
-                        case 0:
-                            topup_loop--;
-                            select = 0;
-                            break;
-                        // ฝาก 0.returnด้วย
-                        default:
-                            Console.WriteLine("Please select only 0 or 1");
-                            break;
-                    }
-
-                }
+                balance = YourWallet(balance);
+                select = 0;
             }
 
             else
@@ -81,6 +47,7 @@ class Program
 
         }
 
+        Console.WriteLine(balance);
 
     } // main
 
@@ -142,7 +109,7 @@ class Program
         if (ans == 1 && balance > game_price)
         {
             Console.Clear();
-            Console.WriteLine($"You have purchased {games[choose, name]}. Your remaining balance is: " + (games[choose, price]) + "baht.");
+            Console.WriteLine($"You have purchased {games[choose, name]}. Your remaining balance is: {games[choose, price]} baht.");
             balance = balance - game_price;
         }
 
@@ -166,6 +133,51 @@ class Program
 
         return balance;
 
+    }
+
+    public static long YourWallet(long balance)
+    {
+        bool success;
+        int select;
+
+        Console.Clear();
+        Console.WriteLine("----Your Wallet----");
+        Console.WriteLine($"Current Wallet balance = {balance} Baht");//return wallet
+        Console.WriteLine("1.Topup");
+        Console.WriteLine("0.return");
+        success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+
+        int topup_loop = 1;
+        while (topup_loop != 0)
+        {
+            switch (select)
+            {
+                case 1:
+
+                    topup_loop--;
+
+                    long topup;
+                    Console.WriteLine("Input your balance:");
+                    success = Int64.TryParse(Console.ReadLine(), out topup);   // input select
+
+                    balance = balance + topup;
+
+                    Console.WriteLine($"Steam wallet code : {balance}");//return wallet
+
+                    return balance;
+
+
+                case 0:
+                    topup_loop--;
+                    return balance;
+                // ฝาก 0.returnด้วย
+                default:
+                    Console.WriteLine("Please select only 0 or 1");
+                    break;
+            }
+
+        }
+        return balance;
     }
 
 }
