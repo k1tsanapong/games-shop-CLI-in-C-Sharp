@@ -10,6 +10,11 @@ class Program
 {
     static void Main(string[] args)
     {
+        
+    } // main
+
+    public static void PrepareMerge()
+    {
         bool success;   // use for no error input
         int select, userInput = 1;
 
@@ -48,10 +53,7 @@ class Program
         }
 
         Console.WriteLine($"Your current balance is : {balance}");
-        
-    } // main
-
-
+    }
 
 
     public static void shop(long balance)
