@@ -311,7 +311,7 @@ namespace SelectMenu
 
             }
 
-            else if (ans == 1 && balance < game_price)
+            else if (ans == 1 && balance < game_price)//Taeza007
             {
                 Console.Clear();
                 Console.WriteLine("You don't have enough money.");
