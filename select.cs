@@ -166,6 +166,8 @@ namespace SelectMenu
             bool success;   // use for no error input
             int select, userInput = 1;
 
+            shop(balance);
+
             success = Int32.TryParse(Console.ReadLine(), out select);   // input select
 
             userInput = 1;  // for check the loop
