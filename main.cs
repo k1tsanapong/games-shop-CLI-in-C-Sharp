@@ -47,8 +47,8 @@ class Program
 
         }
 
-        Console.WriteLine(balance);
-
+        Console.WriteLine($"Your current balance is : {balance}");
+        
     } // main
 
 
@@ -77,7 +77,7 @@ class Program
     {
         bool success;
         int ans;
-
+        int select;
         choose--;
 
         var games = new string[4, 2]
@@ -109,8 +109,46 @@ class Program
         if (ans == 1 && balance > game_price)
         {
             Console.Clear();
-            Console.WriteLine($"You have purchased {games[choose, name]}. Your remaining balance is: {games[choose, price]} baht.");
-            balance = balance - game_price;
+            Console.WriteLine($"You have purchased {games[choose, name]}.\t Your remaining balance : {balance-game_price}");//เงินที่จะเหลือหลังซื้อเกม
+            
+            Console.WriteLine("Comfirm purchase?");
+            Console.WriteLine("1.yes");
+            Console.WriteLine("2.no");
+
+            success = Int32.TryParse(Console.ReadLine(), out select); 
+
+            switch(select)
+            {
+            case 1:
+                Console.WriteLine("yes");
+                balance = balance - game_price;
+            break;
+            
+            case 2:
+                Console.WriteLine("purchase failed !!!");
+                break;
+
+            default:
+                Console.WriteLine("Select only 1,2");
+                break;
+
+            }
+                    
+
+            return balance;
+
+
+
+
+
+
+
+
+
+
+            
+
+            
         }
 
         else if (ans == 1 && balance < game_price)

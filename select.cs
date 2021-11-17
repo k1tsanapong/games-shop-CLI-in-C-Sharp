@@ -186,10 +186,6 @@ namespace SelectMenu
             }
 
 
-            // foreach (string game_name in show_game){
-            //     Console.WriteLine(i + ". " + game_name);     // not work (；￣Д￣）
-            //     i++;
-            // }
 
         }
 
