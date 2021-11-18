@@ -180,7 +180,7 @@ namespace SelectMenu
             Console.WriteLine("*----Menu----*");
             Console.WriteLine("1.Shop");
             Console.WriteLine("2.Libray");
-            Console.WriteLine("0.Return");
+            Console.WriteLine("0.Sign Out");
             Console.Write("Select ....");
         }
 
@@ -202,39 +202,49 @@ namespace SelectMenu
 
         }
 
-        public static void PrepareMerge(long balance)
+        //    _____      __          __       ______                   
+        //   / ___/___  / /__  _____/ /_     / ____/___ _____ ___  ___ 
+        //   \__ \/ _ \/ / _ \/ ___/ __/    / / __/ __ `/ __ `__ \/ _ \
+        //  ___/ /  __/ /  __/ /__/ /_     / /_/ / /_/ / / / / / /  __/
+        // /____/\___/_/\___/\___/\__/     \____/\__,_/_/ /_/ /_/\___/ 
+
+        public static void SelectGame(long balance)
         {
             bool success;   // use for no error input
-            int select, userInput = 1;
+            int select;
 
-            shop(balance);
-
-            success = Int32.TryParse(Console.ReadLine(), out select);   // input select
-
-            userInput = 1;  // for check the loop
-            while (userInput != 0)
+            do
             {
+                shop(balance);
+                // Console.WriteLine(select);
+                success = Int32.TryParse(Console.ReadLine(), out select);   // input select
 
                 if (select >= 1 && select <= 4)
                 {
-                    userInput--;        // userInput = 0; break the loop
                     balance = BuyGame(balance, select);
+
                 }
 
                 else if (select == 5)
                 {
                     balance = YourWallet(balance);
-                    select = 0;
+
+                }
+
+                else if (select == 0)
+                {
+                    break;
                 }
 
                 else
                 {
-                    shop(balance);
-                    success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+                    Console.WriteLine("Wong");
+
                 }
 
+            } while (true);
 
-            }
+
 
             Console.WriteLine($"Your current balance is : {balance}");
         }
@@ -263,73 +273,98 @@ namespace SelectMenu
             int name = 0;
             int price = 1;
 
-            Console.Clear();
 
+            // Console.Clear();
 
-
-            Console.WriteLine($"{games[choose, name]}");
-            Console.WriteLine($"Would you like to buy {games[choose, name]} for {games[choose, price]} baht? \n1.Yes   2.No");
-
-
-            success = Int32.TryParse(Console.ReadLine(), out ans);   // input ans
-
-
-            int game_price = Convert.ToInt32(games[choose, price]);
-
-            Console.Clear();
-
-            if (ans == 1 && balance > game_price)
+            do
             {
                 Console.Clear();
-                Console.WriteLine($"You have purchased {games[choose, name]}.\t Your remaining balance : {balance - game_price}");//เงินที่จะเหลือหลังซื้อเกม
 
-                Console.WriteLine("Comfirm purchase?");
-                Console.WriteLine("1.yes");
-                Console.WriteLine("2.no");
 
-                success = Int32.TryParse(Console.ReadLine(), out select);
 
-                switch (select)
+                Console.WriteLine($"{games[choose, name]}");
+                Console.WriteLine($"Would you like to buy {games[choose, name]} for {games[choose, price]} baht? \n1.Yes   2.No");
+
+
+                success = Int32.TryParse(Console.ReadLine(), out ans);   // input ans
+
+
+                int game_price = Convert.ToInt32(games[choose, price]);
+
+                if (ans == 1 && balance > game_price)
                 {
-                    case 1:
-                        Console.WriteLine("yes");
-                        balance = balance - game_price;
-                        break;
+                    Console.Clear();
+                    Console.WriteLine($"You have purchased {games[choose, name]}.\t Your remaining balance : {balance - game_price}");//เงินที่จะเหลือหลังซื้อเกม
 
-                    case 2:
-                        Console.WriteLine("purchase failed !!!");
-                        break;
 
-                    default:
-                        Console.WriteLine("Select only 1,2");
-                        break;
+                    int again = 1;
+                    do
+                    {
+                        Console.WriteLine("Comfirm purchase?");
+                        Console.WriteLine("1.yes");
+                        Console.WriteLine("2.no");
+
+                        success = Int32.TryParse(Console.ReadLine(), out select);
+
+                        switch (select)
+                        {
+                            case 1:
+                                again = 0;
+                                Console.Clear();
+                                Console.WriteLine("yes");
+                                balance = balance - game_price;
+                                return balance;
+
+
+                            case 2:
+                                again = 0;
+                                Console.Clear();
+                                Console.WriteLine("purchase failed !!!");
+                                return balance;
+
+
+                            default:
+                                Console.Clear();
+                                Console.WriteLine("Select only 1,2");
+                                break;
+
+                        }
+
+
+
+                    } while (again != 0);
+
+
+
 
                 }
 
+                else if (ans == 1 && balance < game_price)//Taeza007
+                {
+                    Console.Clear();
+                    Console.WriteLine("You don't have enough money.");
+                    Console.ReadKey();
+                    return balance;
+                }
 
-                return balance;
+                else if (ans == 2)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Purchase Failed.");
+                    Console.ReadKey();
+                    return balance;
+                }
 
-            }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please select 1 or 2 only.");
+                    Console.ReadKey();
+                }
 
-            else if (ans == 1 && balance < game_price)//Taeza007
-            {
-                Console.Clear();
-                Console.WriteLine("You don't have enough money.");
-            }
 
-            else if (ans == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Purchase Failed.");
-            }
 
-            else
-            {
-                Console.Clear();
-                Console.WriteLine("Please select 1 or 2 only.");
-            }
-
-            return balance;
+            } while (true);
 
         }
 
@@ -363,7 +398,7 @@ namespace SelectMenu
                         topup_loop--;
 
                         long topup;
-                        Console.WriteLine("Input your balance:");
+                        Console.Write("Input your balance: ");
                         success = Int64.TryParse(Console.ReadLine(), out topup);   // input select
 
                         balance = balance + topup;
@@ -407,6 +442,7 @@ namespace SelectMenu
                 {
                     Console.WriteLine("0. Return");
                     Console.Write("Select... ");
+                    Console.ReadKey();
 
                 }
 
@@ -414,6 +450,7 @@ namespace SelectMenu
                 {
                     Console.WriteLine("Have no game");
                     Console.WriteLine("Enter for exit");
+                    
                 }
 
                 else
