@@ -19,7 +19,7 @@ namespace SelectMenu
 
     public class main_menu
     {
-
+        
         public static void selection()
         {
             Console.Clear();
@@ -29,8 +29,9 @@ namespace SelectMenu
             Console.WriteLine("2. Sign up");
             Console.WriteLine("0. Exit");
             Console.Write("Select ....");
-
+        
         }
+        
 
         //     __                  ____     
         //    / /   ____   ____ _ /  _/____ 
@@ -432,6 +433,9 @@ namespace SelectMenu
 
         public static void libary(string user_name)
         {
+            bool success;
+            
+
             Console.Clear();
             Console.WriteLine("*----Libary----*");
 
@@ -444,7 +448,48 @@ namespace SelectMenu
                 {
                     Console.WriteLine("0. Return");
                     Console.Write("Select... ");
-                    Console.ReadKey();
+                    
+                    int game;
+
+                    success = Int32.TryParse(Console.ReadLine(), out game);   // input select
+                    game = game+1;
+
+                    switch(game)
+                    {
+                        case <1:
+                            goto default;
+
+                        case 1:
+                                // return
+                            break;
+
+                        case <6:
+                                
+                                
+                                Console.Clear();
+                                Console.WriteLine($"{show_game[game]} start======>");
+
+                                Console.WriteLine("   _____ _             _      _____                      ");
+                                Console.WriteLine("  / ____| |           | |    / ____|                     ");
+                                Console.WriteLine(" | (___ | |_ __ _ _ __| |_  | |  __  __ _ _ __ ___   ___ ");
+                                Console.WriteLine("  \\___ \\| __/ _` | '__| __| | | |_ |/ _` | '_ ` _ \\ / _ \\");
+                                Console.WriteLine("  ____) | || (_| | |  | |_  | |__| | (_| | | | | | |  __/");
+                                Console.WriteLine(" |_____/ \\__\\__,_|_|   \\__|  \\_____|\\__,_|_| |_| |_|\\___|");
+                                Console.WriteLine("                                                         ");
+                                
+                                //kimzafslk;djgo;eghlwjerfl;jksfd
+
+                                Console.ReadKey();
+                                Environment.Exit(0);
+
+                            break;
+
+                        default:
+                                Console.WriteLine("long");
+                                Console.ReadKey();
+                            break;
+
+                    }
 
                 }
 
@@ -465,7 +510,7 @@ namespace SelectMenu
 
 
         }
-
+       
     }
 
 
