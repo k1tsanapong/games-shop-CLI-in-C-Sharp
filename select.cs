@@ -467,7 +467,7 @@ namespace SelectMenu
                                 
                                 
                                 Console.Clear();
-                                Console.WriteLine($"{show_game[game]} start======>");
+                                Console.WriteLine($"{show_game[game]}");
 
                                 Console.WriteLine("   _____ _             _      _____                      ");
                                 Console.WriteLine("  / ____| |           | |    / ____|                     ");

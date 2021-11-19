@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace Func
 {
@@ -75,10 +76,13 @@ namespace Func
             string user_new = name + "," + password;
             Console.WriteLine(name + "," + password);
 
-            using (StreamWriter file = new StreamWriter(file_func.Path("user"), true))
-            {
-                file.WriteLine(user_new);
-            }
+            WriteOnFile("user", user_new);
+            WriteOnFile("libary", name+",500");
+
+            // using (StreamWriter file = new StreamWriter(file_func.Path("user"), true))
+            // {
+            //     file.WriteLine(user_new);
+            // }
 
         }
 
@@ -93,7 +97,46 @@ namespace Func
         }
 
 
+        public static void WriteOnFile(string file_name, List<string> words)
+        {
 
+            // string user_new = name + "," + password;
+            // Console.WriteLine(name + "," + password);
+
+            // column--;   //Array start at 0
+
+            // for (int i = 0; i < data_base.Length; i++)  //check all rows
+            // {
+            //     string[] fields = data_base[i].Split(',');
+
+            //     if (check == fields[column])
+            //     {
+            //         //Console.WriteLine("fail");
+            //         return true;                           //break
+            //     }
+            // }
+
+            // //Console.WriteLine("Suc");
+            // return false;
+
+            // string sentence ;
+
+            using (StreamWriter file = new StreamWriter(file_func.Path(file_name), true))
+            {
+                file.WriteLine(words[0]);
+            }
+
+
+
+        }
+
+        public static void WriteOnFile(string file_name, string words)
+        {
+            using (StreamWriter file = new StreamWriter(file_func.Path(file_name), true))
+            {
+                file.WriteLine(words);
+            }
+        }
 
 
 
