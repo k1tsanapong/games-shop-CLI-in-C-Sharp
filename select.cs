@@ -19,7 +19,7 @@ namespace SelectMenu
 
     public class main_menu
     {
-
+        
         public static void selection()
         {
             Console.Clear();
@@ -29,8 +29,9 @@ namespace SelectMenu
             Console.WriteLine("2. Sign up");
             Console.WriteLine("0. Exit");
             Console.Write("Select ....");
-
+        
         }
+        
 
         //     __                  ____     
         //    / /   ____   ____ _ /  _/____ 
@@ -509,7 +510,7 @@ namespace SelectMenu
 
 
         }
-
+       
     }
 
 

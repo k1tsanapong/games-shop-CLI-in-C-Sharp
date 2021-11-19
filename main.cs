@@ -11,6 +11,9 @@ class Program
         bool success;   // use for no error input
         int select, userInput = 1;
         string user_name = "";
+        string[] user_data;
+        long balance = 0;
+
 
         main_menu.selection();
 
@@ -24,6 +27,8 @@ class Program
                 case 1:
                     userInput--;
                     user_name = main_menu.login();
+                    user_data = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
+                    balance = Convert.ToInt64(user_data[1]);
                     break;
 
                 case 2:
@@ -31,6 +36,9 @@ class Program
                     main_menu.signup();
                     goto case 1;
 
+                case 0:
+                    Environment.Exit(0);
+                    break;
                 default:
                     Console.WriteLine("Do again");
                     success = Int32.TryParse(Console.ReadLine(), out select);   // input select
@@ -38,8 +46,7 @@ class Program
             }
         }
 
-        string[] user_data = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
-        long balance = Convert.ToInt64(user_data[1]);
+
 
         do
         {
@@ -58,9 +65,37 @@ class Program
                     break;
 
                 case 0:
-                    // return
-                    Environment.Exit(0);
-                    
+                    main_menu.selection();
+
+                    success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+                    userInput = 1;
+                    while (userInput != 0)
+                    {
+                        switch (select)
+                        {
+
+                            case 1:
+                                userInput--;
+                                user_name = main_menu.login();
+                                user_data = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
+                                balance = Convert.ToInt64(user_data[1]);
+                                break;
+
+                            case 2:
+                                userInput--;
+                                main_menu.signup();
+                                goto case 1;
+
+                            case 0:
+                                Environment.Exit(0);
+                                break;
+                            default:
+                                Console.WriteLine("Do again");
+                                success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+                                break;
+                        }
+                    }
+
                     break;
                 default:
                     Console.WriteLine("Please select 1-3");
