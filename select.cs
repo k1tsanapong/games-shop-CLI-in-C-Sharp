@@ -99,7 +99,7 @@ namespace SelectMenu
         //  ___/ // // /_/ // / / // /_/ // /_/ /
         // /____//_/ \__, //_/ /_/ \____// .___/ 
         //          /____/              /_/      
-        public static void signup()
+        public static string signup()
         {
             string user_name, user_password, user_password_confilm;
             int check_loop = 1;
@@ -155,7 +155,7 @@ namespace SelectMenu
 
             Console.Clear();
             user_func.AddNewUser(user_name, user_password);
-
+            return user_name;
         }
     }   // end class main_menu
 
@@ -352,7 +352,7 @@ namespace SelectMenu
                                 File.WriteAllText("./data/libary.txt", text);
 
                                 string line = file_func.CheckLine(user_name,1,file_func.PullData("libary"));
-                                text = text.Replace(line, line + "," + games[choose, name]);
+                                text = text.Replace(line, line + games[choose, name] + ",");
                                 File.WriteAllText("./data/libary.txt", text);
 
                                 return balance_new;
@@ -446,7 +446,7 @@ namespace SelectMenu
                         long balance_new = balance + topup;
 
                         string text = File.ReadAllText("./data/libary.txt");
-                        text = text.Replace(user_name+ "," + balance, user_name + "," + balance_new);
+                        text = text.Replace(user_name+ "," + balance + ",", user_name + "," + balance_new + ",");
                         File.WriteAllText("./data/libary.txt", text);
 
                         Console.WriteLine($"Steam wallet code : {balance}");//return wallet
@@ -477,16 +477,16 @@ namespace SelectMenu
         public static void libary(string user_name)
         {
             bool success;
-
-
+            string[] show_game;
+            
             Console.Clear();
             Console.WriteLine("*----Libary----*");
 
-            string[] show_game = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
+            show_game = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
 
             for (int i = 2; i <= show_game.Length; i++)
             {
-
+                
                 if (i == show_game.Length)
                 {
                     Console.WriteLine("0. Return");
@@ -539,17 +539,22 @@ namespace SelectMenu
 
 
 
-                else if (show_game[i] == "")
+                else if (show_game[2] == "")
                 {
                     Console.WriteLine("Have no game");
                     Console.WriteLine("Enter for exit");
 
                 }
 
-                else
+                else if (show_game[i] != "")
                 {
                     Console.WriteLine(i - 1 + ". " + show_game[i]);
                 }
+
+                
+                
+                    
+                
 
             }
 
