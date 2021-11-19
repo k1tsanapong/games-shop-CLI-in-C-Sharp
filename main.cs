@@ -34,7 +34,7 @@ class Program
                 case 2:
                     userInput--;
                     main_menu.signup();
-                    goto case 1;
+                    break;
 
                 case 0:
                     Environment.Exit(0);
@@ -57,7 +57,7 @@ class Program
             switch (select)
             {
                 case 1:
-                    menu.SelectGame(balance);   // return game yet.
+                    menu.SelectGame(user_name, balance);   // return game yet.
                     break;
 
                 case 2:
@@ -84,7 +84,7 @@ class Program
                             case 2:
                                 userInput--;
                                 main_menu.signup();
-                                goto case 1;
+                                break;
 
                             case 0:
                                 Environment.Exit(0);

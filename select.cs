@@ -19,7 +19,7 @@ namespace SelectMenu
 
     public class main_menu
     {
-        
+
         public static void selection()
         {
             Console.Clear();
@@ -29,9 +29,9 @@ namespace SelectMenu
             Console.WriteLine("2. Sign up");
             Console.WriteLine("0. Exit");
             Console.Write("Select ....");
-        
+
         }
-        
+
 
         //     __                  ____     
         //    / /   ____   ____ _ /  _/____ 
@@ -210,7 +210,7 @@ namespace SelectMenu
         //  ___/ /  __/ /  __/ /__/ /_     / /_/ / /_/ / / / / / /  __/
         // /____/\___/_/\___/\___/\__/     \____/\__,_/_/ /_/ /_/\___/ 
 
-        public static void SelectGame(long balance)
+        public static void SelectGame(string user_name, long balance)
         {
             bool success;   // use for no error input
             int select;
@@ -223,7 +223,7 @@ namespace SelectMenu
 
                 if (select >= 1 && select <= 4)
                 {
-                    balance = BuyGame(balance, select);
+                    balance = BuyGame(user_name, balance, select);
 
                 }
 
@@ -257,11 +257,12 @@ namespace SelectMenu
         //  / /_/ // /_/ // /_/ // /_/ // /_/ // / / / / //  __/
         // /_____/ \__,_/ \__, / \____/ \__,_//_/ /_/ /_/ \___/ 
         //               /____/                                 
-        public static long BuyGame(long balance, int choose)
+        public static long BuyGame(string user_name, long balance, int choose)
         {
             bool success;
             int ans;
             int select;
+            string[] games_in_libary;
             choose--;
 
             var games = new string[4, 2]
@@ -269,7 +270,7 @@ namespace SelectMenu
             { "GTA X", "999"},
             {"Cyberpunk 1999", "1299"},
             {"Old World", "899"},
-            {"Mariol Cart", "299"}
+            {"Mario Cart", "299"}
             };
 
             int name = 0;
@@ -282,6 +283,27 @@ namespace SelectMenu
             {
                 Console.Clear();
 
+                if (file_func.ScanData(user_name, 1, file_func.PullData("libary")))
+                {
+
+
+
+                    games_in_libary = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
+
+                    for (int i = 2; i < games_in_libary.Length; i++)
+                    {
+
+                        if (games[choose, name] == games_in_libary[i])
+                        {
+                            Console.WriteLine(games_in_libary[i] + "DU");
+                            Console.ReadKey();
+                            return balance;
+                        }
+
+
+                    }
+                }
+
 
 
                 Console.WriteLine($"{games[choose, name]}");
@@ -293,12 +315,14 @@ namespace SelectMenu
 
                 int game_price = Convert.ToInt32(games[choose, price]);
 
+
+
                 if (ans == 1 && balance > game_price)
                 {
-                    
 
 
-                    
+
+
                     do
                     {
                         Console.Clear();
@@ -312,15 +336,18 @@ namespace SelectMenu
                         switch (select)
                         {
                             case 1:
-                                
+
                                 Console.Clear();
                                 Console.WriteLine("yes");
+
+                                file_func.WriteOnFile("libary", games[choose, name] + ",");
+
                                 balance = balance - game_price;
                                 return balance;
 
 
                             case 2:
-                                
+
                                 Console.Clear();
                                 Console.WriteLine("purchase failed !!!");
                                 return balance;
@@ -434,7 +461,7 @@ namespace SelectMenu
         public static void libary(string user_name)
         {
             bool success;
-            
+
 
             Console.Clear();
             Console.WriteLine("*----Libary----*");
@@ -448,56 +475,59 @@ namespace SelectMenu
                 {
                     Console.WriteLine("0. Return");
                     Console.Write("Select... ");
-                    
+
                     int game;
 
                     success = Int32.TryParse(Console.ReadLine(), out game);   // input select
-                    game = game+1;
+                    game = game + 1;
 
-                    switch(game)
+                    switch (game)
                     {
-                        case <1:
+                        case < 1:
                             goto default;
 
                         case 1:
-                                // return
+                            // return
                             break;
 
-                        case <6:
-                                
-                                
-                                Console.Clear();
-                                Console.WriteLine($"{show_game[game]}");
+                        case < 6:
 
-                                Console.WriteLine("   _____ _             _      _____                      ");
-                                Console.WriteLine("  / ____| |           | |    / ____|                     ");
-                                Console.WriteLine(" | (___ | |_ __ _ _ __| |_  | |  __  __ _ _ __ ___   ___ ");
-                                Console.WriteLine("  \\___ \\| __/ _` | '__| __| | | |_ |/ _` | '_ ` _ \\ / _ \\");
-                                Console.WriteLine("  ____) | || (_| | |  | |_  | |__| | (_| | | | | | |  __/");
-                                Console.WriteLine(" |_____/ \\__\\__,_|_|   \\__|  \\_____|\\__,_|_| |_| |_|\\___|");
-                                Console.WriteLine("                                                         ");
-                                
-                                //kimzafslk;djgo;eghlwjerfl;jksfd
 
-                                Console.ReadKey();
-                                Environment.Exit(0);
+                            Console.Clear();
+                            Console.WriteLine($"{show_game[game]}");
+
+                            Console.WriteLine("   _____ _             _      _____                      ");
+                            Console.WriteLine("  / ____| |           | |    / ____|                     ");
+                            Console.WriteLine(" | (___ | |_ __ _ _ __| |_  | |  __  __ _ _ __ ___   ___ ");
+                            Console.WriteLine("  \\___ \\| __/ _` | '__| __| | | |_ |/ _` | '_ ` _ \\ / _ \\");
+                            Console.WriteLine("  ____) | || (_| | |  | |_  | |__| | (_| | | | | | |  __/");
+                            Console.WriteLine(" |_____/ \\__\\__,_|_|   \\__|  \\_____|\\__,_|_| |_| |_|\\___|");
+                            Console.WriteLine("                                                         ");
+
+                            //kimzafslk;djgo;eghlwjerfl;jksfd
+
+                            Console.ReadKey();
+                            Environment.Exit(0);
 
                             break;
 
                         default:
-                                Console.WriteLine("long");
-                                Console.ReadKey();
+                            Console.WriteLine("long");
+                            Console.ReadKey();
                             break;
 
                     }
 
                 }
 
+
+
+
                 else if (show_game[i] == "")
                 {
                     Console.WriteLine("Have no game");
                     Console.WriteLine("Enter for exit");
-                    
+
                 }
 
                 else
@@ -510,7 +540,7 @@ namespace SelectMenu
 
 
         }
-       
+
     }
 
 

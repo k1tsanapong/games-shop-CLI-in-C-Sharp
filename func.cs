@@ -39,7 +39,7 @@ namespace Func
 
         public static string Path(string file_name)
         {
-
+            // string path = "../../../data/" + file_name + ".txt"; //for visual studio
             string path = "./data/" + file_name + ".txt";
             return path;
         }
@@ -65,38 +65,6 @@ namespace Func
 
         }
 
-    }
-
-
-    public class user_func
-    {
-
-        public static void AddNewUser(string name, string password)
-        {
-            string user_new = name + "," + password;
-            Console.WriteLine(name + "," + password);
-
-            WriteOnFile("user", user_new);
-            WriteOnFile("libary", name+",500");
-
-            // using (StreamWriter file = new StreamWriter(file_func.Path("user"), true))
-            // {
-            //     file.WriteLine(user_new);
-            // }
-
-        }
-
-
-
-
-        public static bool CheckUserName(string new_user_name)
-        {
-            string[] user_name = file_func.PullData("user");
-            return file_func.ScanData(new_user_name, 1, user_name);
-
-        }
-
-
         public static void WriteOnFile(string file_name, List<string> words)
         {
 
@@ -121,6 +89,9 @@ namespace Func
 
             // string sentence ;
 
+            // var even = new List<int>();
+            // var odd = new List<int>();
+
             using (StreamWriter file = new StreamWriter(file_func.Path(file_name), true))
             {
                 file.WriteLine(words[0]);
@@ -137,6 +108,39 @@ namespace Func
                 file.WriteLine(words);
             }
         }
+
+    }
+
+
+    public class user_func
+    {
+
+        public static void AddNewUser(string name, string password)
+        {
+            string start_money = "0";
+
+            file_func.WriteOnFile("user", name + "," + password);
+            file_func.WriteOnFile("libary", name + "," + start_money);
+
+            // using (StreamWriter file = new StreamWriter(file_func.Path("user"), true))
+            // {
+            //     file.WriteLine(user_new);
+            // }
+
+        }
+
+
+
+
+        public static bool CheckUserName(string new_user_name)
+        {
+            string[] user_name = file_func.PullData("user");
+            return file_func.ScanData(new_user_name, 1, user_name);
+
+        }
+
+
+
 
 
 
