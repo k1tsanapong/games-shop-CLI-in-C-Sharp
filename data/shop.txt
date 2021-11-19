@@ -1,4 +1,4 @@
-GTA X,23
-cyberpunk 1999,47
-old world,221
-mario cart,60
+GTA X,999
+cyberpunk 1999,1299
+old world,899
+mario cart,299

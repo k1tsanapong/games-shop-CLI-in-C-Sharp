@@ -1,5 +1,6 @@
 using System;
 using Func;
+using System.IO;
 namespace SelectMenu
 {
 
@@ -19,7 +20,7 @@ namespace SelectMenu
 
     public class main_menu
     {
-        
+
         public static void selection()
         {
             Console.Clear();
@@ -29,9 +30,9 @@ namespace SelectMenu
             Console.WriteLine("2. Sign up");
             Console.WriteLine("0. Exit");
             Console.Write("Select ....");
-        
+
         }
-        
+
 
         //     __                  ____     
         //    / /   ____   ____ _ /  _/____ 
@@ -98,7 +99,7 @@ namespace SelectMenu
         //  ___/ // // /_/ // / / // /_/ // /_/ /
         // /____//_/ \__, //_/ /_/ \____// .___/ 
         //          /____/              /_/      
-        public static void signup()
+        public static string signup()
         {
             string user_name, user_password, user_password_confilm;
             int check_loop = 1;
@@ -154,7 +155,7 @@ namespace SelectMenu
 
             Console.Clear();
             user_func.AddNewUser(user_name, user_password);
-
+            return user_name;
         }
     }   // end class main_menu
 
@@ -210,7 +211,7 @@ namespace SelectMenu
         //  ___/ /  __/ /  __/ /__/ /_     / /_/ / /_/ / / / / / /  __/
         // /____/\___/_/\___/\___/\__/     \____/\__,_/_/ /_/ /_/\___/ 
 
-        public static void SelectGame(long balance)
+        public static void SelectGame(string user_name, long balance)
         {
             bool success;   // use for no error input
             int select;
@@ -223,13 +224,13 @@ namespace SelectMenu
 
                 if (select >= 1 && select <= 4)
                 {
-                    balance = BuyGame(balance, select);
+                    balance = BuyGame(user_name, balance, select);
 
                 }
 
                 else if (select == 5)
                 {
-                    balance = YourWallet(balance);
+                    balance = YourWallet(user_name,balance);
 
                 }
 
@@ -257,11 +258,12 @@ namespace SelectMenu
         //  / /_/ // /_/ // /_/ // /_/ // /_/ // / / / / //  __/
         // /_____/ \__,_/ \__, / \____/ \__,_//_/ /_/ /_/ \___/ 
         //               /____/                                 
-        public static long BuyGame(long balance, int choose)
+        public static long BuyGame(string user_name, long balance, int choose)
         {
             bool success;
             int ans;
             int select;
+            string[] games_in_libary;
             choose--;
 
             var games = new string[4, 2]
@@ -269,7 +271,7 @@ namespace SelectMenu
             { "GTA X", "999"},
             {"Cyberpunk 1999", "1299"},
             {"Old World", "899"},
-            {"Mariol Cart", "299"}
+            {"Mario Cart", "299"}
             };
 
             int name = 0;
@@ -282,6 +284,25 @@ namespace SelectMenu
             {
                 Console.Clear();
 
+                // check game
+               
+               
+                    games_in_libary = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
+
+                    for (int i = 2; i < games_in_libary.Length; i++)
+                    {
+
+                        if (games[choose, name] == games_in_libary[i])
+                        {
+                            Console.WriteLine("You have it already.");
+                            Console.ReadKey();
+                            return balance;
+                        }
+
+
+                    }
+                
+                // check game
 
 
                 Console.WriteLine($"{games[choose, name]}");
@@ -293,12 +314,14 @@ namespace SelectMenu
 
                 int game_price = Convert.ToInt32(games[choose, price]);
 
+
+
                 if (ans == 1 && balance > game_price)
                 {
-                    
 
 
-                    
+
+
                     do
                     {
                         Console.Clear();
@@ -312,15 +335,31 @@ namespace SelectMenu
                         switch (select)
                         {
                             case 1:
-                                
+
                                 Console.Clear();
                                 Console.WriteLine("yes");
-                                balance = balance - game_price;
-                                return balance;
+
+                                long balance_new = balance - game_price;
+                                // file_func.WriteOnFile("libary", user_name + "," + balance + "," + games[choose, name] + ",");
+
+                                string text = File.ReadAllText("./data/libary.txt");
+                                // string[] text = file_func.PullData("libary");
+                                
+                                
+
+                                // text = text.Replace(user_name, "," + balance + "," + games[choose, name] + ",");
+                                text = text.Replace(user_name+ "," + balance, user_name + "," + balance_new);
+                                File.WriteAllText("./data/libary.txt", text);
+
+                                string line = file_func.CheckLine(user_name,1,file_func.PullData("libary"));
+                                text = text.Replace(line, line + games[choose, name] + ",");
+                                File.WriteAllText("./data/libary.txt", text);
+
+                                return balance_new;
 
 
                             case 2:
-                                
+
                                 Console.Clear();
                                 Console.WriteLine("purchase failed !!!");
                                 return balance;
@@ -379,7 +418,7 @@ namespace SelectMenu
 
 
 
-        public static long YourWallet(long balance)
+        public static long YourWallet(string user_name ,long balance)
         {
             bool success;
             int select;
@@ -404,11 +443,15 @@ namespace SelectMenu
                         Console.Write("Input your balance: ");
                         success = Int64.TryParse(Console.ReadLine(), out topup);   // input select
 
-                        balance = balance + topup;
+                        long balance_new = balance + topup;
+
+                        string text = File.ReadAllText("./data/libary.txt");
+                        text = text.Replace(user_name+ "," + balance + ",", user_name + "," + balance_new + ",");
+                        File.WriteAllText("./data/libary.txt", text);
 
                         Console.WriteLine($"Steam wallet code : {balance}");//return wallet
 
-                        return balance;
+                        return balance_new;
 
 
                     case 0:
@@ -434,83 +477,91 @@ namespace SelectMenu
         public static void libary(string user_name)
         {
             bool success;
+            string[] show_game;
             
-
             Console.Clear();
             Console.WriteLine("*----Libary----*");
 
-            string[] show_game = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
+            show_game = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
 
             for (int i = 2; i <= show_game.Length; i++)
             {
-
+                
                 if (i == show_game.Length)
                 {
                     Console.WriteLine("0. Return");
                     Console.Write("Select... ");
-                    
+
                     int game;
 
                     success = Int32.TryParse(Console.ReadLine(), out game);   // input select
-                    game = game+1;
+                    game = game + 1;
 
-                    switch(game)
+                    switch (game)
                     {
-                        case <1:
+                        case < 1:
                             goto default;
 
                         case 1:
-                                // return
+                            // return
                             break;
 
-                        case <6:
-                                
-                                
-                                Console.Clear();
-                                Console.WriteLine($"{show_game[game]} start======>");
+                        case < 6:
 
-                                Console.WriteLine("   _____ _             _      _____                      ");
-                                Console.WriteLine("  / ____| |           | |    / ____|                     ");
-                                Console.WriteLine(" | (___ | |_ __ _ _ __| |_  | |  __  __ _ _ __ ___   ___ ");
-                                Console.WriteLine("  \\___ \\| __/ _` | '__| __| | | |_ |/ _` | '_ ` _ \\ / _ \\");
-                                Console.WriteLine("  ____) | || (_| | |  | |_  | |__| | (_| | | | | | |  __/");
-                                Console.WriteLine(" |_____/ \\__\\__,_|_|   \\__|  \\_____|\\__,_|_| |_| |_|\\___|");
-                                Console.WriteLine("                                                         ");
-                                
-                                //kimzafslk;djgo;eghlwjerfl;jksfd
 
-                                Console.ReadKey();
-                                Environment.Exit(0);
+                            Console.Clear();
+                            Console.WriteLine($"{show_game[game]}");
+
+                            Console.WriteLine("   _____ _             _      _____                      ");
+                            Console.WriteLine("  / ____| |           | |    / ____|                     ");
+                            Console.WriteLine(" | (___ | |_ __ _ _ __| |_  | |  __  __ _ _ __ ___   ___ ");
+                            Console.WriteLine("  \\___ \\| __/ _` | '__| __| | | |_ |/ _` | '_ ` _ \\ / _ \\");
+                            Console.WriteLine("  ____) | || (_| | |  | |_  | |__| | (_| | | | | | |  __/");
+                            Console.WriteLine(" |_____/ \\__\\__,_|_|   \\__|  \\_____|\\__,_|_| |_| |_|\\___|");
+                           
+
+                            //kimzafslk;djgo;eghlwjerfl;jksfd
+
+                            Console.ReadKey();
+                            Environment.Exit(0);
 
                             break;
 
                         default:
-                                Console.WriteLine("long");
-                                Console.ReadKey();
+                            Console.WriteLine("long");
+                            Console.ReadKey();
                             break;
 
                     }
 
                 }
 
-                else if (show_game[i] == "")
+
+
+
+                else if (show_game[2] == "")
                 {
                     Console.WriteLine("Have no game");
                     Console.WriteLine("Enter for exit");
-                    
+
                 }
 
-                else
+                else if (show_game[i] != "")
                 {
                     Console.WriteLine(i - 1 + ". " + show_game[i]);
                 }
+
+                
+                
+                    
+                
 
             }
 
 
 
         }
-       
+
     }
 
 
