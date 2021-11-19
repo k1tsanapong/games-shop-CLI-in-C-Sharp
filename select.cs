@@ -181,6 +181,7 @@ namespace SelectMenu
             Console.WriteLine("1.Shop");
             Console.WriteLine("2.Libray");
             Console.WriteLine("0.Sign Out");
+            // Console.WriteLine("0. Exit");
             Console.Write("Select ....");
         }
 
@@ -293,13 +294,14 @@ namespace SelectMenu
 
                 if (ans == 1 && balance > game_price)
                 {
-                    Console.Clear();
-                    Console.WriteLine($"You have purchased {games[choose, name]}.\t Your remaining balance : {balance - game_price}");//เงินที่จะเหลือหลังซื้อเกม
+                    
 
 
-                    int again = 1;
+                    
                     do
                     {
+                        Console.Clear();
+                        Console.WriteLine($"You have purchased {games[choose, name]}.\t Your remaining balance : {balance - game_price}");//เงินที่จะเหลือหลังซื้อเกม
                         Console.WriteLine("Comfirm purchase?");
                         Console.WriteLine("1.yes");
                         Console.WriteLine("2.no");
@@ -309,7 +311,7 @@ namespace SelectMenu
                         switch (select)
                         {
                             case 1:
-                                again = 0;
+                                
                                 Console.Clear();
                                 Console.WriteLine("yes");
                                 balance = balance - game_price;
@@ -317,7 +319,7 @@ namespace SelectMenu
 
 
                             case 2:
-                                again = 0;
+                                
                                 Console.Clear();
                                 Console.WriteLine("purchase failed !!!");
                                 return balance;
@@ -332,7 +334,7 @@ namespace SelectMenu
 
 
 
-                    } while (again != 0);
+                    } while (true);
 
 
 
