@@ -83,7 +83,7 @@ class Program
 
                             case 2:
                                 userInput--;
-                                main_menu.signup();
+                                user_name = main_menu.signup();
                                 break;
 
                             case 0:
