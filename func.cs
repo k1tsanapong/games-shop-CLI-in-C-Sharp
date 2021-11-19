@@ -65,6 +65,29 @@ namespace Func
 
         }
 
+        public static string CheckLine(string check, int column, string[] data_base)
+        {
+            
+            column--;   //Array start at 0
+
+            for (int i = 0; i < data_base.Length; i++)  //check all rows
+            {
+                string[] fields = data_base[i].Split(',');
+
+                if (check == fields[column])
+                {
+                    //Console.WriteLine("fail");
+                    return data_base[i];                           //break
+                }
+            }
+
+            //Console.WriteLine("Suc");
+            return "not";
+
+        }
+
+        
+
         public static void WriteOnFile(string file_name, List<string> words)
         {
 
@@ -120,14 +143,14 @@ namespace Func
             string start_money = "0";
 
             file_func.WriteOnFile("user", name + "," + password);
-            file_func.WriteOnFile("libary", name + "," + start_money);
+            file_func.WriteOnFile("libary", name + "," + start_money + ",");
 
             // using (StreamWriter file = new StreamWriter(file_func.Path("user"), true))
             // {
             //     file.WriteLine(user_new);
             // }
 
-        }
+        }   
 
 
 

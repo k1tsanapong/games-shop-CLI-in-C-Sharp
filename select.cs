@@ -1,5 +1,6 @@
 using System;
 using Func;
+using System.IO;
 namespace SelectMenu
 {
 
@@ -229,7 +230,7 @@ namespace SelectMenu
 
                 else if (select == 5)
                 {
-                    balance = YourWallet(balance);
+                    balance = YourWallet(user_name,balance);
 
                 }
 
@@ -283,11 +284,9 @@ namespace SelectMenu
             {
                 Console.Clear();
 
-                if (file_func.ScanData(user_name, 1, file_func.PullData("libary")))
-                {
-
-
-
+                // check game
+               
+               
                     games_in_libary = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
 
                     for (int i = 2; i < games_in_libary.Length; i++)
@@ -295,15 +294,15 @@ namespace SelectMenu
 
                         if (games[choose, name] == games_in_libary[i])
                         {
-                            Console.WriteLine(games_in_libary[i] + "DU");
+                            Console.WriteLine("You have it already.");
                             Console.ReadKey();
                             return balance;
                         }
 
 
                     }
-                }
-
+                
+                // check game
 
 
                 Console.WriteLine($"{games[choose, name]}");
@@ -340,10 +339,23 @@ namespace SelectMenu
                                 Console.Clear();
                                 Console.WriteLine("yes");
 
-                                file_func.WriteOnFile("libary", games[choose, name] + ",");
+                                long balance_new = balance - game_price;
+                                // file_func.WriteOnFile("libary", user_name + "," + balance + "," + games[choose, name] + ",");
 
-                                balance = balance - game_price;
-                                return balance;
+                                string text = File.ReadAllText("./data/libary.txt");
+                                // string[] text = file_func.PullData("libary");
+                                
+                                
+
+                                // text = text.Replace(user_name, "," + balance + "," + games[choose, name] + ",");
+                                text = text.Replace(user_name+ "," + balance, user_name + "," + balance_new);
+                                File.WriteAllText("./data/libary.txt", text);
+
+                                string line = file_func.CheckLine(user_name,1,file_func.PullData("libary"));
+                                text = text.Replace(line, line + "," + games[choose, name]);
+                                File.WriteAllText("./data/libary.txt", text);
+
+                                return balance_new;
 
 
                             case 2:
@@ -406,7 +418,7 @@ namespace SelectMenu
 
 
 
-        public static long YourWallet(long balance)
+        public static long YourWallet(string user_name ,long balance)
         {
             bool success;
             int select;
@@ -431,11 +443,15 @@ namespace SelectMenu
                         Console.Write("Input your balance: ");
                         success = Int64.TryParse(Console.ReadLine(), out topup);   // input select
 
-                        balance = balance + topup;
+                        long balance_new = balance + topup;
+
+                        string text = File.ReadAllText("./data/libary.txt");
+                        text = text.Replace(user_name+ "," + balance, user_name + "," + balance_new);
+                        File.WriteAllText("./data/libary.txt", text);
 
                         Console.WriteLine($"Steam wallet code : {balance}");//return wallet
 
-                        return balance;
+                        return balance_new;
 
 
                     case 0:
@@ -502,7 +518,7 @@ namespace SelectMenu
                             Console.WriteLine("  \\___ \\| __/ _` | '__| __| | | |_ |/ _` | '_ ` _ \\ / _ \\");
                             Console.WriteLine("  ____) | || (_| | |  | |_  | |__| | (_| | | | | | |  __/");
                             Console.WriteLine(" |_____/ \\__\\__,_|_|   \\__|  \\_____|\\__,_|_| |_| |_|\\___|");
-                            Console.WriteLine("                                                         ");
+                           
 
                             //kimzafslk;djgo;eghlwjerfl;jksfd
 
