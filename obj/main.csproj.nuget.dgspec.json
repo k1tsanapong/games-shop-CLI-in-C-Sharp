@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\Documents\\GitHub\\SteamReplit\\main.csproj": {}
+    "C:\\Users\\USER\\Documents\\GitHub\\SteamReplit\\main.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\Documents\\GitHub\\SteamReplit\\main.csproj": {
+    "C:\\Users\\USER\\Documents\\GitHub\\SteamReplit\\main.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Documents\\GitHub\\SteamReplit\\main.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Documents\\GitHub\\SteamReplit\\main.csproj",
         "projectName": "main",
-        "projectPath": "C:\\Users\\Acer\\Documents\\GitHub\\SteamReplit\\main.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Documents\\GitHub\\SteamReplit\\obj\\",
+        "projectPath": "C:\\Users\\USER\\Documents\\GitHub\\SteamReplit\\main.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\Documents\\GitHub\\SteamReplit\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

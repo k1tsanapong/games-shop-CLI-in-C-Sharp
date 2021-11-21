@@ -15,18 +15,25 @@ class Program
         long balance = 0;
 
 
-        main_menu.selection();
-
-        success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+        
         userInput = 1;
         while (userInput != 0)
+
         {
+            main_menu.selection();
+
+        success = Int32.TryParse(Console.ReadLine(), out select); 
             switch (select)
             {
 
                 case 1:
                     userInput--;
                     user_name = main_menu.login();
+                    if (user_name == "0")
+                    {
+                        userInput = 1;
+                        break;
+                    }
                     user_data = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
                     balance = Convert.ToInt64(user_data[1]);
                     break;

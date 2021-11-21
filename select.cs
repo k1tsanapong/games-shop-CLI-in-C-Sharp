@@ -47,6 +47,7 @@ namespace SelectMenu
 
             Console.Clear();
             Console.WriteLine("--- Log In ---");
+            Console.WriteLine("Enter 0 for return");
 
             do
             {
@@ -54,13 +55,16 @@ namespace SelectMenu
                 {
                     Console.Clear();
                     Console.WriteLine("--- Log In ---");
-                    Console.WriteLine("Username or Password is wong");
+                    Console.WriteLine("Username or Password is wrong");
                 }
 
                 Console.Write("User : ");
 
                 user_name = Console.ReadLine();
-
+                if (user_name == "0")
+            {
+                return "0";
+            }
                 if (file_func.ScanData(user_name, 1, file_func.PullData("user")))
                 {
 
@@ -74,7 +78,6 @@ namespace SelectMenu
                         Console.WriteLine("Suc");
                         return user_name;
                     }
-
                     else
                     {
                         check_loop = 2;
