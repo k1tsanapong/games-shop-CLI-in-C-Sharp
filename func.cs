@@ -10,10 +10,16 @@ namespace Func
 
         public static string[] PullData(string file_name)
         {
-
+            string[] data_base;
             string path = Path(file_name);
 
-            string[] data_base = File.ReadAllLines(path);
+        try{
+            data_base = File.ReadAllLines(path);
+        }
+        catch(DirectoryNotFoundException){
+            path = "../../../data/" + file_name + ".txt"; //for visual studio
+            data_base = File.ReadAllLines(path);
+        }
             return data_base;
 
         }

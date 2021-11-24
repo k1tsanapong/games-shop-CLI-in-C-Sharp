@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Documents\\GitHub\\SteamReplit\\main.csproj": {}
+    "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\SteamReplit\\main.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Documents\\GitHub\\SteamReplit\\main.csproj": {
+    "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\SteamReplit\\main.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Documents\\GitHub\\SteamReplit\\main.csproj",
+        "projectUniqueName": "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\SteamReplit\\main.csproj",
         "projectName": "main",
-        "projectPath": "C:\\Users\\USER\\Documents\\GitHub\\SteamReplit\\main.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Documents\\GitHub\\SteamReplit\\obj\\",
+        "projectPath": "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\SteamReplit\\main.csproj",
+        "packagesPath": "C:\\Users\\kitsa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kitsa\\OneDrive - Mae Fah Luang University\\Desktop\\SteamReplit\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kitsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp5.0"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
