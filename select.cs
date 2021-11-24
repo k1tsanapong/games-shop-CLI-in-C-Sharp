@@ -141,13 +141,13 @@ namespace SelectMenu
                     Console.Clear();
                     Console.WriteLine("--- Sign Up ---");
                     Console.WriteLine("User : " + user_name);
-                    Console.WriteLine("Not math");
+                    Console.WriteLine("Not match");
                 }
 
                 Console.Write("Password : ");
                 user_password = Console.ReadLine();
 
-                Console.Write("Confilm Password : ");
+                Console.Write("Confirm Password : ");
                 user_password_confilm = Console.ReadLine();
 
                 check_loop = 2;
