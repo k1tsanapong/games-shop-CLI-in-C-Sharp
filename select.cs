@@ -111,6 +111,7 @@ namespace SelectMenu
 
             Console.Clear();
             Console.WriteLine("--- Sign Up ---");
+            Console.WriteLine("Enter 0 for return");
 
             do
             {
