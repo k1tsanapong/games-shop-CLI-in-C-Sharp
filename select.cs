@@ -132,7 +132,7 @@ namespace SelectMenu
                 Console.Write("User : ");
                 user_name = Console.ReadLine();
 
-                
+
                 if (user_name == "0")
                 {
                     return "0";
@@ -440,16 +440,16 @@ namespace SelectMenu
             bool success;
             int select;
 
-            Console.Clear();
-            Console.WriteLine("----Your Wallet----");
-            Console.WriteLine($"Current Wallet balance = {balance} Baht");//return wallet
-            Console.WriteLine("1.Topup");
-            Console.WriteLine("0.return");
-            success = Int32.TryParse(Console.ReadLine(), out select);   // input select
-
             int topup_loop = 1;
             while (topup_loop != 0)
             {
+                Console.Clear();
+                Console.WriteLine("----Your Wallet----");
+                Console.WriteLine($"Current Wallet balance = {balance} Baht");//return wallet
+                Console.WriteLine("1.Topup");
+                Console.WriteLine("0.return");
+                success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+
                 switch (select)
                 {
                     case 1:
@@ -472,11 +472,15 @@ namespace SelectMenu
 
 
                     case 0:
+                        if (success == false) { goto default; }
                         topup_loop--;
                         return balance;
                     // ฝาก 0.returnด้วย
                     default:
+                        Console.Clear();
                         Console.WriteLine("Please select only 0 or 1");
+                        Console.ReadKey();
+
                         break;
                 }
 
@@ -505,7 +509,7 @@ namespace SelectMenu
                 {
                     Console.Clear();
                     Console.WriteLine("*----Libary----*");
-                    
+
                 }
 
                 if (i == show_game.Length)
@@ -529,7 +533,7 @@ namespace SelectMenu
                             break;
 
                         case > 1:
-                            if(game > show_game.Length - 3) {goto default;}
+                            if (game > show_game.Length - 3) { goto default; }
 
                             Console.Clear();
                             Console.WriteLine($"{show_game[game]}");
@@ -559,7 +563,7 @@ namespace SelectMenu
                             }
 
                             Console.WriteLine($"Please select 1-{show_game.Length - 3}");
-                            
+
 
                             Console.ReadKey();
                             i = 1;
