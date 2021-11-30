@@ -132,6 +132,12 @@ namespace SelectMenu
                 Console.Write("User : ");
                 user_name = Console.ReadLine();
 
+                
+                if (user_name == "0")
+                {
+                    return "0";
+                }
+
                 check_loop = 2;
 
             } while (user_func.CheckUserName(user_name));

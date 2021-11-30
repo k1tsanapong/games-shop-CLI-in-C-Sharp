@@ -40,11 +40,16 @@ class Program
                 case 2:
                     userInput = 0;
                     user_name = main_menu.signup();
+                    if (user_name == "0")
+                    {
+                        userInput = 1;
+                        break;
+                    }
                     break;
 
                 case 0:
 
-                    if (success == false) { goto default;}
+                    if (success == false) { goto default; }
 
                     Environment.Exit(0);
                     break;
@@ -76,7 +81,7 @@ class Program
                     break;
 
                 case 0:
-                    if (success == false) { goto default;}
+                    if (success == false) { goto default; }
                     userInput = 1;
                     while (userInput != 0)
                     {
@@ -101,11 +106,17 @@ class Program
                             case 2:
                                 userInput = 0;
                                 user_name = main_menu.signup();
+                                if (user_name == "0")
+                                {
+                                    userInput = 1;
+                                    break;
+                                }
+
                                 break;
 
                             case 0:
 
-                                if (success == false) { goto default;}
+                                if (success == false) { goto default; }
 
                                 Environment.Exit(0);
                                 break;
