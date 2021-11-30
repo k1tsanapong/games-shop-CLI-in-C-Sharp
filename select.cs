@@ -21,7 +21,7 @@ namespace SelectMenu
     public class main_menu
     {
 
-        public static void selection()
+        public static void selection(int again)
         {
             Console.Clear();
 
@@ -29,6 +29,10 @@ namespace SelectMenu
             Console.WriteLine("1. Log in ");
             Console.WriteLine("2. Sign up");
             Console.WriteLine("0. Exit");
+            if(again == 2)
+            {
+                Console.WriteLine("Please select 1-2");
+            }
             Console.Write("Select ....");
 
         }
@@ -238,14 +242,16 @@ namespace SelectMenu
 
                 }
 
-                else if (select == 0)
+                else if (select == 0 && success == true)
                 {
                     break;
                 }
 
                 else
                 {
-                    Console.WriteLine("Wong");
+                    Console.Clear();
+                    Console.WriteLine("Please select 1-5");
+                    Console.ReadKey();
 
                 }
 
@@ -372,6 +378,7 @@ namespace SelectMenu
                             default:
                                 Console.Clear();
                                 Console.WriteLine("Select only 1,2");
+                                Console.ReadKey();
                                 break;
 
                         }
@@ -507,6 +514,7 @@ namespace SelectMenu
                             goto default;
 
                         case 1:
+                            if (success == false) { goto default;}
                             // return
                             break;
 
@@ -534,6 +542,9 @@ namespace SelectMenu
                         default:
                             Console.WriteLine("long");
                             Console.ReadKey();
+
+                             i = 2;
+
                             break;
 
                     }

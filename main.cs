@@ -15,19 +15,19 @@ class Program
         long balance = 0;
 
 
-        
-       userInput = 1;
+
+        userInput = 1;
         while (userInput != 0)
-
         {
-            main_menu.selection();
 
-        success = Int32.TryParse(Console.ReadLine(), out select); 
+            main_menu.selection(userInput);
+            success = Int32.TryParse(Console.ReadLine(), out select);
+
             switch (select)
             {
 
                 case 1:
-                    userInput--;
+                    userInput = 0;
                     user_name = main_menu.login();
                     if (user_name == "0")
                     {
@@ -38,17 +38,22 @@ class Program
                     balance = Convert.ToInt64(user_data[1]);
                     break;
                 case 2:
-                    userInput--;
+                    userInput = 0;
                     user_name = main_menu.signup();
                     break;
 
                 case 0:
+
+                    if (success == false) { goto default;}
+
                     Environment.Exit(0);
                     break;
+
                 default:
-                    Console.WriteLine("Do again");
-                    success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+                    userInput = 2;
                     break;
+
+
             }
         }
 
@@ -71,40 +76,53 @@ class Program
                     break;
 
                 case 0:
-                    main_menu.selection();
-
-                    success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+                    if (success == false) { goto default;}
                     userInput = 1;
                     while (userInput != 0)
                     {
+
+                        main_menu.selection(userInput);
+                        success = Int32.TryParse(Console.ReadLine(), out select);
+
                         switch (select)
                         {
 
                             case 1:
-                                userInput--;
+                                userInput = 0;
                                 user_name = main_menu.login();
+                                if (user_name == "0")
+                                {
+                                    userInput = 1;
+                                    break;
+                                }
                                 user_data = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
                                 balance = Convert.ToInt64(user_data[1]);
                                 break;
-
                             case 2:
-                                userInput--;
+                                userInput = 0;
                                 user_name = main_menu.signup();
                                 break;
 
                             case 0:
+
+                                if (success == false) { goto default;}
+
                                 Environment.Exit(0);
                                 break;
+
                             default:
-                                Console.WriteLine("Do again");
-                                success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+                                userInput = 2;
                                 break;
+
+
                         }
                     }
 
                     break;
                 default:
+                    Console.Clear();
                     Console.WriteLine("Please select 1-3");
+                    Console.ReadKey();
                     break;
             }
 
