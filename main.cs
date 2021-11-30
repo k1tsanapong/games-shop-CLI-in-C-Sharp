@@ -12,7 +12,7 @@ class Program
         int select, userInput = 1;
         string user_name = "";
         string[] user_data;
-        long balance = 0;
+        double balance = 0;
 
 
 
