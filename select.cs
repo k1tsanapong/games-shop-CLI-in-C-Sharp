@@ -528,12 +528,13 @@ namespace SelectMenu
                             goto default;
 
                         case 1:
+                            
                             if (success == false) { goto default; }
                             // return
                             break;
 
                         case > 1:
-                            if (game > show_game.Length - 3) { goto default; }
+                            if (game > show_game.Length - 2) { goto default; }
 
                             Console.Clear();
                             Console.WriteLine($"{show_game[game]}");
