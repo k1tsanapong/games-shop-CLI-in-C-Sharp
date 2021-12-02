@@ -562,7 +562,10 @@ namespace SelectMenu
                                 Console.WriteLine("Please select return");
                             }
 
-                            Console.WriteLine($"Please select 1-{show_game.Length - 3}");
+                            else
+                            {
+                                Console.WriteLine($"Please select 1-{show_game.Length - 3}");
+                            }
 
 
                             Console.ReadKey();
