@@ -35,7 +35,7 @@ class Program
                         break;
                     }
                     user_data = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
-                    balance = Convert.ToInt64(user_data[1]);
+                    balance = Convert.ToDouble(user_data[1]);
                     break;
                 case 2:
                     userInput = 0;
@@ -46,7 +46,7 @@ class Program
                         break;
                     }
                     user_data = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
-                    balance = Convert.ToInt64(user_data[1]);
+                    balance = Convert.ToDouble(user_data[1]);
                     break;
 
                 case 0:
@@ -103,7 +103,7 @@ class Program
                                     break;
                                 }
                                 user_data = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
-                                balance = Convert.ToInt64(user_data[1]);
+                                balance = Convert.ToDouble(user_data[1]);
                                 break;
                             case 2:
                                 userInput = 0;
@@ -114,7 +114,7 @@ class Program
                                     break;
                                 }
                                 user_data = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
-                                balance = Convert.ToInt64(user_data[1]);
+                                balance = Convert.ToDouble(user_data[1]);
 
                                 break;
 

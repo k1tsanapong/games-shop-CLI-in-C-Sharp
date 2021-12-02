@@ -580,7 +580,7 @@ namespace SelectMenu
                 else if (show_game[2] == "")
                 {
                     Console.WriteLine("Have no game");
-                    Console.WriteLine("Enter for exit");
+                    
 
                 }
 

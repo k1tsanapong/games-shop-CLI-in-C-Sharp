@@ -1,1 +1,2 @@
 admin,10000,GTA X,Cyberpunk 1999,Old World,Mario Cart,
+kim,50.5,
