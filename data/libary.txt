@@ -1,2 +1,4 @@
 admin,10000,GTA X,Cyberpunk 1999,Old World,Mario Cart,
-kim,4751.5,Mario Cart,
+test,99000,GTA X,
+kim,2503,Old World,Mario Cart,Cyberpunk 1999,
+dream,2247,Mario Cart,GTA X,Old World,Cyberpunk 1999,

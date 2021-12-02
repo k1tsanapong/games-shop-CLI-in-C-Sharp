@@ -141,6 +141,10 @@ class Program
                     break;
             }
 
+            user_data = file_func.SelectData(user_name, 1, file_func.PullData("libary"));
+            balance = Convert.ToDouble(user_data[1]);
+
+
         } while (true);
 
     } // main

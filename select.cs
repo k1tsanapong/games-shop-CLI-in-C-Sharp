@@ -201,6 +201,15 @@ namespace SelectMenu
             Console.Write("Select ....");
         }
 
+        //    _____ __              
+        //   / ___// /_  ____  ____ 
+        //   \__ \/ __ \/ __ \/ __ \
+        //  ___/ / / / / /_/ / /_/ /
+        // /____/_/ /_/\____/ .___/ 
+        //                 /_/      
+
+
+
         public static void shop(double balance)
         {
 
@@ -528,7 +537,7 @@ namespace SelectMenu
                             goto default;
 
                         case 1:
-                            
+
                             if (success == false) { goto default; }
                             // return
                             break;
@@ -584,7 +593,7 @@ namespace SelectMenu
                 else if (show_game[2] == "")
                 {
                     Console.WriteLine("Have no game");
-                    
+
 
                 }
 
