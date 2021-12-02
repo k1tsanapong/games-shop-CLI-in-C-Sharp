@@ -1,5 +1,4 @@
 admin,1234
+test,1234
 kim,5435
-test,123
-test_2,123456
-chester,12345
+dream,123
