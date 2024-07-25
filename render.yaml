@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: c-hashtag-ttyd-app
+    name: games-shop-CLI-in-C-Sharp
     env: docker
     plan: free
     region: singapore
