@@ -3,6 +3,7 @@ services:
     name: c-hashtag-ttyd-app
     env: docker
     plan: free
+    region: singapore
     dockerfilePath: ./Dockerfile
     buildCommand: ""
     startCommand: ""
