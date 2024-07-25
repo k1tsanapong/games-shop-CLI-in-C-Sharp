@@ -1,0 +1,5 @@
+/home/seki/games-shop-CLI-in-C-Sharp/out/main
+/home/seki/games-shop-CLI-in-C-Sharp/out/main.dll
+/home/seki/games-shop-CLI-in-C-Sharp/out/main.deps.json
+/home/seki/games-shop-CLI-in-C-Sharp/out/main.runtimeconfig.json
+/home/seki/games-shop-CLI-in-C-Sharp/out/main.pdb

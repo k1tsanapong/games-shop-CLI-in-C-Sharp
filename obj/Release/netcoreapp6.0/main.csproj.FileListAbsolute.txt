@@ -1,0 +1,15 @@
+/home/seki/games-shop-CLI-in-C-Sharp/bin/Release/netcoreapp6.0/main
+/home/seki/games-shop-CLI-in-C-Sharp/bin/Release/netcoreapp6.0/main.deps.json
+/home/seki/games-shop-CLI-in-C-Sharp/bin/Release/netcoreapp6.0/main.runtimeconfig.json
+/home/seki/games-shop-CLI-in-C-Sharp/bin/Release/netcoreapp6.0/main.dll
+/home/seki/games-shop-CLI-in-C-Sharp/bin/Release/netcoreapp6.0/main.pdb
+/home/seki/games-shop-CLI-in-C-Sharp/obj/Release/netcoreapp6.0/main.csproj.AssemblyReference.cache
+/home/seki/games-shop-CLI-in-C-Sharp/obj/Release/netcoreapp6.0/main.GeneratedMSBuildEditorConfig.editorconfig
+/home/seki/games-shop-CLI-in-C-Sharp/obj/Release/netcoreapp6.0/main.AssemblyInfoInputs.cache
+/home/seki/games-shop-CLI-in-C-Sharp/obj/Release/netcoreapp6.0/main.AssemblyInfo.cs
+/home/seki/games-shop-CLI-in-C-Sharp/obj/Release/netcoreapp6.0/main.csproj.CoreCompileInputs.cache
+/home/seki/games-shop-CLI-in-C-Sharp/obj/Release/netcoreapp6.0/main.dll
+/home/seki/games-shop-CLI-in-C-Sharp/obj/Release/netcoreapp6.0/refint/main.dll
+/home/seki/games-shop-CLI-in-C-Sharp/obj/Release/netcoreapp6.0/main.pdb
+/home/seki/games-shop-CLI-in-C-Sharp/obj/Release/netcoreapp6.0/main.genruntimeconfig.cache
+/home/seki/games-shop-CLI-in-C-Sharp/obj/Release/netcoreapp6.0/ref/main.dll

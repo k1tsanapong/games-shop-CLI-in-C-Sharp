@@ -1,4 +1,4 @@
 admin,1234
 test,1234
-kim,5435
+kim,1234
 dream,123
