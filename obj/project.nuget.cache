@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gxpvnH1h1jkbNT2CJzS3hNZkMhIOXyIIFhh8fk/UavAYLS5UJz6bAFmhtC1YSABcgffvMGLp+9PbNXADE4a7qw==",
+  "dgSpecHash": "CJiKlUqLn4X5WGyzdOImTbL7WjZbOkGQzlDsf9l6ST56g5cmN99TymYfsSAGZ8TcIHlDzUbhKaMNuuJjKxQXnA==",
   "success": true,
-  "projectFilePath": "/home/seki/games-shop-CLI-in-C-Sharp/main.csproj",
+  "projectFilePath": "/home/seki/Desktop/games-shop-CLI-in-C-Sharp/main.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

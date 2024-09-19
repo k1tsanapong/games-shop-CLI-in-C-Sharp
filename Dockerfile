@@ -20,10 +20,13 @@ WORKDIR /app
 # Copy the built files
 COPY --from=build /app/out .
 COPY --from=build /app/data/ ./../data
+
+COPY ttyd  ./ttyd
+
 # Install ttyd
 RUN apt-get update && \
     apt-get install -y build-essential cmake git libjson-c-dev libwebsockets-dev && \
-    git clone https://github.com/tsl0922/ttyd.git && \
+    # git clone https://github.com/tsl0922/ttyd.git && \
     cd ttyd && \
     mkdir build && \
     cd build && \
