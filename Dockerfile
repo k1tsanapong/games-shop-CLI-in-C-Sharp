@@ -21,7 +21,7 @@ WORKDIR /app
 COPY --from=build /app/out .
 COPY --from=build /app/data/ ./../data
 
-COPY ttyd  ./ttyd
+COPY ttyd  /app/ttyd
 
 # Install ttyd
 RUN apt-get update && \
